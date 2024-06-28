@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="post">
+        <div id="product_added">
+
+        </div>
+        <form action="" id="form">
+            <h3><label for="id">Movie ID <input type="text" id="id"></label></h3>
+            <h3><label for="title">Title <input type="text" id="title"></label></h3>
+            <h3><label for="year">Year <input type="text" id="year"></label></h3>
+            <h3><label for="rate">Time <input type="text" id="rate"></label></h3>
+            <h3><label for="desc">Describe <input type="text" id="desc"></label></h3>
+            <h3><label for="u_img">URL image<input type="text" id="u_img"></label></h3>
+            <h3><label for="" class="btn"><button id="insert">Add</button><button id="update">Update</button>
+                    <button id="remove">Remove</button> </label></h3>
+        </form>
+    </section>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+        import { getDatabase, get, set, ref, remove, update, child } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyCiL9I5hokjct0j1WiLg5ZB0erVv094aiw",
+            authDomain: "cima-kids.firebaseapp.com",
+            projectId: "cima-kids",
+            storageBucket: "cima-kids.appspot.com",
+            messagingSenderId: "324919675126",
+            appId: "1:324919675126:web:af1fb7392f829b2f2104d7",
+            measurementId: "G-WZHXGFQLY0",
+            databaseURL: "https://cima-kids-default-rtdb.europe-west1.firebasedatabase.app"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+
+        const db = getDatabase(app);
+
+
+        var insert_btn = document.getElementById("insert");
+        var update_btn = document.getElementById("update");
+        var remove_btn = document.getElementById("remove");
+
+
+
+        function insert_date(e) {
+
+            e.preventDefault();
+
+            // const db_ref = ref(db);
+
+            set(ref(db, "movies/" + document.getElementById("id").value), {
+                movie_id: document.getElementById("id").value,
+                title: document.getElementById("title").value,
+                year: document.getElementById("year").value,
+                rate: document.getElementById("rate").value,
+                description: document.getElementById("desc").value,
+                image_url: document.getElementById("u_img").value
+            })
+                .then(() => { alert("The data insert successfully!!!"); })
+                .catch((error) => { alert(error); });
+        }
+
+        function update_date(e) {
+            e.preventDefault();
+
+            update(ref(db, "movies/" + document.getElementById("id").value), {
+                movie_id: document.getElementById("id").value,
+                title: document.getElementById("title").value,
+                year: document.getElementById("year").value,
+                rate: document.getElementById("rate").value,
+                description: document.getElementById("desc").value,
+                image_url: document.getElementById("u_img").value
+            })
+                .then(() => { alert("The data update successfully!!!"); })
+                .catch((error) => { alert(error); });
+        }
+
+        function remove_date(e) {
+            e.preventDefault();
+
+            remove(ref(db, "movies/" + document.getElementById("id").value))
+                .then(() => { alert("The data removed successfully!!!"); })
+                .catch((error) => { alert(error); });
+        }
+
+
+
+        insert_btn.addEventListener("click", insert_date);
+        update_btn.addEventListener("click", update_date);
+        remove_btn.addEventListener("click", remove_date);
+
+    </script>
+</body>
+
+</html>
