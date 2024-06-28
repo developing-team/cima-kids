@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <section class="profile-section">
+        <div class="user-details">
+            <div class="user-avatar">
+                <img src="./pictures/user.png" alt="User Avatar">
+            </div>
+            <div class="user-info">
+                <h1 class="user-name">John Doe</h1>
+                <p class="user-email">john.doe@example.com</p>
+            </div>
+            <div class="edit-button">
+                <button>Edit</button>
+            </div>
+        </div>
+
+        <div class="user-information">
+            <!-- <h2>Information</h2> -->
+            <form id="information-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" value="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="john.doe@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <input type="text" id="gender" name="gender" value="Male">
+                </div>
+                <div class="form-group">
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country" value="Country Name">
+                </div>
+                <div class="save_button">
+                    <button type="submit">Save</button>
+                </div>
+            </form>
+            <div class="watched">
+                <h4>Watched</h4>
+                <div class="movies_card">
+                    <div class="movie"></div>
+                    <div class="movie"></div>
+                    <div class="movie"></div>
+                    <div class="movie"></div>
+                    <div class="movie"></div>
+                    <div class="movie"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="social-icons">
+            <h2>Social Media</h2>
+            <ul class="social-list">
+                <li><a href="#"><img src="./pictures/social.png" alt="Facebook"></a></li>
+                <li><a href="#"><img src="./pictures/instagram.png" alt="Twitter"></a></li>
+                <li><a href="#"><img src="./pictures/facebook.png" alt="Instagram"></a></li>
+                <!-- Add more social media icons as needed -->
+            </ul>
+        </div>
+    </section>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
