@@ -5,25 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Navbar and Footer</title>
     <link rel="stylesheet" href="catalogue.css">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
     
+  
     <nav class="navbar">
         <div class="navbar-brand">
             <a href="#">BrandName</a>
         </div>
         <div class="navbar-links" id="navbarLinks">
             <a href="#">Home</a>
+            <a href="#">Catalogue</a>
             <a href="#">About</a>
-            <a href="#">Services</a>
             <a href="#">Contact</a>
         </div>
         <div class="navbar-toggle" id="navbarToggle">
             <span>&#9776;</span>
         </div>
-    </nav>
-    <br>
+    </nav> 
+     
+     <!-- Search Bar -->
+     <div class="search-block">
+      <form id="search-form">
+          <input type="text" id="search-input" placeholder="Search movies by title...">
+          <button type="submit" class="btn btn-secondary">Search</button>
+      </form>
+  </div>
+   
 
     <div class="wrapper">
         <div id="movieCardsContainer" class="row">
@@ -69,38 +79,65 @@
                 var links = document.getElementById('navbarLinks');
                 links.classList.toggle('active');
             });
+          });
 
-            const movieCardsContainer = document.getElementById('movieCardsContainer');
+          const movieCardsContainer = document.getElementById('movieCardsContainer');
 
-            const fetchMovies = async () => {
-                const dbRef = ref(db, 'movies');
-                const snapshot = await get(dbRef);
-                if (snapshot.exists()) {
-                    const movies = snapshot.val();
-                    Object.values(movies).forEach(movie => {
-                        const movieCard = document.createElement('div');
-                        movieCard.className = 'card';
-                        movieCard.innerHTML = `
-                            <img class="movie-poster" src="${movie['image_url']}" alt="Movie Poster">
-                            <div class="card-content">
-                                <h2 class="movie-title">${movie.title}</h2>
-                                <p class="movie-year">${movie.year}</p>
-                                <p class="movie-rating">Rating: ${movie.rate}/10</p>
-                                <div class="describe">
-                                    <p>${movie.description.split(' ').slice(0, 16).join(' ')}...</p>
-                                     <button class="btn btn-primary text-white">View Details</button>
-                                </div>
-                            </div>
-                        `;
-                        movieCardsContainer.appendChild(movieCard);
-                    });
-                } else {
-                    console.log("No data available");
-                }
-            };
+const fetchMovies = async () => {
+    const dbRef = ref(db, 'movies');
+    const snapshot = await get(dbRef);
+    if (snapshot.exists()) {
+        const movies = snapshot.val();
+        return movies; // Return movies data
+    } else {
+        console.log("No data available");
+        return []; // Return an empty array if no data
+    }
+};
 
-            fetchMovies();
-        });
+const renderMovies = (movies) => {
+    movieCardsContainer.innerHTML = ''; // Clear existing movie cards
+
+    Object.values(movies).forEach(movie => {
+        const movieCard = document.createElement('div');
+        movieCard.className = 'card';
+        movieCard.innerHTML = `
+            <img class="movie-poster" src="${movie['image_url']}" alt="Movie Poster">
+            <div class="card-content">
+     <h2 class="movie-title">${movie.title}</h2>
+    <p class="movie-year">${movie.year}</p>
+    <p class="movie-rating">Rating: ${movie.rate}/10</p>
+       <div class="describe">
+       <p>${movie.description.split(' ').slice(0, 16).join(' ')}...</p>
+      <button class="btn btn-primary text-white">View Details</button>
+                </div>
+            </div> `;
+        movieCardsContainer.appendChild(movieCard);
+    });
+};
+
+fetchMovies().then(movies => renderMovies(movies));
+
+
+const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
+
+searchForm.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    const movies = await fetchMovies();
+
+   
+    const filteredMovies = Object.values(movies).filter(movie =>
+        movie.title.toLowerCase().includes(searchTerm)
+    );
+
+    
+    renderMovies(filteredMovies);
+});
+
+           
     </script>
 </body>
 </html>
