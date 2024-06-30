@@ -37,18 +37,6 @@
             </div>
         </div>
     </div>
-    <!-- محتوى الصفحة هنا -->
-
-    <!-- preloader begin -->
-    <div class="preloader">
-        <div class="loader">
-            <hr>
-            <hr>
-        </div>
-    </div>
-    <!-- preloader end -->
-
-
     <div class="container text-center">
         <div class="cont">
             <div class="row">
@@ -103,7 +91,6 @@
             </div>
         </section><br><br><br>
     </div>
-
     <script>
         // استمع للنقرة على الرابط
         document.getElementById('readMoreComments').addEventListener('click', function(event) {
@@ -169,38 +156,6 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
         import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-=======
-    <section id="LeaveComment">
-        <div class="comment-box">
-            <h3>Leave A Comment</h3>
-            <form>
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6">
-                        <input type="text" placeholder="Enter Your Name">
-                        <span></span>
-                    </div>
-                    <div class="col-xl-6 col-lg-6">
-                        <input type="email" placeholder="Enter Your Email">
-                        <span></span>
-                    </div>
-                    <div class="col-xl-12 col-lg-12">
-                        <textarea placeholder="Write a Message"></textarea>
-                        <span class="textarea"></span>
-                    </div>
-                    <div class="col-xl-12 col-lg-12">
-                        <button type="submit">Send Us Now</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section>
-    <!-- إعداد Firebase -->
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
-        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
 
         // Your web app's Firebase configuration
         const firebaseConfig = {
@@ -220,20 +175,19 @@
         const database = getDatabase(app);
 
 
-
 //        // استرجاع معرف الفيلم من query parameter في عنوان URL
 const urlParams = new URLSearchParams(window.location.search);
 const movie_id = urlParams.get('movie_id');
 
 // استخدام معرف الفيلم في دالة retrieveData()
 function retrieveData() {
-=======
-        // دالة لجلب البيانات من Firebase
-        function retrieveData() {
-            const movie_id  = "m05";
+   
+    const urlParams = new URLSearchParams(window.location.search);
+        const movie_id = urlParams.get('movie_id');
+        const movieRef = ref(database, `movies/${movie_id}`);
 
-    const movieRef = ref(database, `movies/${movie_id}`);
-
+        
+        const user_id = 'YMbtqu3xKRZUSDXbIxGMbgOAaSn1';
     onValue(movieRef, (snapshot) => {
         const data = snapshot.val();
         if (data) {
@@ -248,55 +202,110 @@ function retrieveData() {
     });
 }
 
-
 // استدعاء retrieveData() عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', (event) => {
     retrieveData();
 });
 
+// استدعاء الدالة لجلب البيانات عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', (event) => {
+    retrieveData();
+});
+let data=JSON.parse(localStorage.getItem('userData'))
+// دالة لحفظ التعليقات على Firebase
+console.log("comments/"+movie_id+"/"+data.uid+"/");
+function saveComment(comment) {
+    // const commentsRef = ref(database, "comments/"+movie_id+"/"+data.uid+"/"+ comment);
+    
+            // set(ref(database, "comments/"+movie_id+"/"+data.uid+"/"),comment )
+            //     .then(() => { })
+            //     .catch((error) => { alert(error); });
 
+            // push(commentsRef, comment);
+            
 
-        // استدعاء الدالة لجلب البيانات عند تحميل الصفحة
-        document.addEventListener('DOMContentLoaded', (event) => {
-            retrieveData();
-        });
-
-        // دالة لحفظ التعليقات على Firebase
-        function saveComment(comment) {
-            const commentsRef = ref(database, 'comments');
-            push(commentsRef, comment);
+            // set(ref(db, data.uid), {
+            //     movie_id: document.getElementById("id").value,
+            //     title: document.getElementById("title").value,
+            //     year: document.getElementById("year").value,
+            //     rate: document.getElementById("rate").value,
+            //     description: document.getElementById("desc").value,
+            //     image_url: document.getElementById("u_img").value
+            // })
+            //     .then(() => { alert("The data insert successfully!!!"); })
+            //     .catch((error) => { alert(error); });
         }
 
         // دالة لاسترجاع التعليقات من Firebase وعرض الأول فقط
     // دالة لاسترجاع التعليقات من Firebase وعرض الأول فقط
+//     function retrieveComments() {
+//     const commentsRef = ref(database, 'comments');
+//     onValue(commentsRef, (snapshot) => {
+//         const comments = snapshot.val();
+//         if (comments) {
+//             const commentsList = document.getElementById('commentsList');
+//             commentsList.innerHTML = '';
+//             // Get the first comment
+//             const firstComment = Object.values(comments)[0];
+//             if (firstComment) {
+//                 const commentElement = document.createElement('div');
+//                 commentElement.classList.add('single-comment');
+//                 commentElement.innerHTML = `
+//                     <div class="part-img">
+//                         <img src="assets/img/commentor-1.jpg" alt="">
+//                     </div>
+//                     <div class="part-text">
+//                         <span class="commentor-name">${firstComment.name}</span>
+//                         <p>${firstComment.message}</p>
+//                     </div>
+//                 `;
+//                 commentsList.appendChild(commentElement);
+//             }
+//         } else {
+//             console.log('No comments found');
+//         }
+//     });
+// }
+
+
+// دالة لاسترجاع التعليقات من Firebase وعرض الأول فقط
     function retrieveComments() {
-    const commentsRef = ref(database, 'comments');
-    onValue(commentsRef, (snapshot) => {
-        const comments = snapshot.val();
-        if (comments) {
-            const commentsList = document.getElementById('commentsList');
-            commentsList.innerHTML = '';
-            // Get the first comment
-            const firstComment = Object.values(comments)[0];
-            if (firstComment) {
-                const commentElement = document.createElement('div');
-                commentElement.classList.add('single-comment');
-                commentElement.innerHTML = `
-                    <div class="part-img">
-                        <img src="assets/img/commentor-1.jpg" alt="">
-                    </div>
-                    <div class="part-text">
-                        <span class="commentor-name">${firstComment.name}</span>
-                        <p>${firstComment.message}</p>
-                    </div>
-                `;
-                commentsList.appendChild(commentElement);
+        const commentsRef = ref(database, 'comments');
+        onValue(commentsRef, (snapshot) => {
+            const comments = snapshot.val();
+            if (comments) {
+                const commentsList = document.getElementById('commentsList');
+                commentsList.innerHTML = '';
+                let firstComment = true;
+                Object.values(comments).forEach((comment, index) => {
+                    const commentElement = document.createElement('div');
+                    commentElement.classList.add('single-comment');
+                    commentElement.innerHTML = `
+                        <div class="part-img">
+                            <img src="assets/img/commentor-1.jpg" alt="">
+                        </div>
+                        <div class="part-text">
+                            <span class="commentor-name">${comment.name}</span>
+                            <p>${comment.message}</p>
+                        </div>
+                    `;
+                    if (index === 0) {
+                        commentsList.appendChild(commentElement);
+                    } else {
+                        commentElement.classList.add('single-comment-hidden');
+                        commentsList.appendChild(commentElement);
+                    }
+                });
+
+                // عرض رابط "Read more comments" فقط إذا كان هناك أكثر من تعليق
+                if (Object.values(comments).length > 1) {
+                    document.getElementById('readMoreComments').style.display = 'block';
+                }
+            } else {
+                console.log('No comments found');
             }
-        } else {
-            console.log('No comments found');
-        }
-    });
-}
+        });
+    }
 
         // استدعاء الدالة لاسترجاع التعليقات عند تحميل الصفحة
         document.addEventListener('DOMContentLoaded', (event) => {
@@ -354,25 +363,6 @@ document.getElementById('readMoreLink').addEventListener('click', (event) => {
         });
     </script>
 
-    </script>
-   <script>
-    // استمع للنقرة على الرابط
-    document.getElementById('commGroupedstar').addEventListener('click', function(event) {
-        event.preventDefault(); // منع سلوك الرابط الافتراضي
-
-        var hiddenSection = document.getElementById('commGrouped');
-        var style = window.getComputedStyle(hiddenSection); // جلب الوضعية الحالية للعنصر
-
-        if (style.display === 'none') {
-            hiddenSection.style.display = 'block'; // جعل القسم مرئيًا عندما يكون مخفيًا
-            // يمكنك هنا إضافة المنطق الإضافي أو التعديلات اللازمة بعد عرض القسم
-        } else {
-            hiddenSection.style.display = 'none'; // إخفاء القسم إذا كان مرئيًا بالفعل
-        }
-    });
-</script>
-
-
     <!-- باقي الأكواد والسكربتات -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -380,13 +370,7 @@ document.getElementById('readMoreLink').addEventListener('click', (event) => {
     <script src="assets/js/jquery.magnific-popup.js"></script>
     <script src="assets/js/waypoints.min.js"></script>
     <script src="assets/js/wow.min.js"></script>
-
    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjv
-=======
-    <script src="assets/js/main.js"></script>
-</body>
-</html>
-
