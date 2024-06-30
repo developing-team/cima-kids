@@ -181,7 +181,11 @@ footer {
 .movie img {
     position: absolute;
     width: inherit;
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 12b87c61e546b535955e01284cd9be590048b1ba
 }
 
 .movie h6 {
