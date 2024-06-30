@@ -162,15 +162,41 @@ footer {
     justify-content: center;
     margin-top: 5px;
 
-
 }
 
 
 .movie {
     margin: 10px 15px;
     width: 100px;
-    height: 140px;
+    height: 145px;
     background-color: #52B6FF;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 5px;
+}
+
+.movie img {
+    position: absolute;
+    width: inherit;
+
+}
+
+.movie h6 {
+    color: #fff;
+    position: relative;
+    z-index: 5;
+    margin: 0px 5px;
+}
+
+.movie p {
+    color: #fff;
+    font-size: x-small;
+    margin: 5px 5px;
+    position: relative;
+    z-index: 5;
 }
 
 .form-group label {
@@ -189,8 +215,9 @@ footer {
     font-size: 1rem;
 }
 
-button[type="submit"] {
-    background-color: #28a745;
+button[type="submit"],
+button[type="button"] {
+    background-color: #007bff;
 
     color: #fff;
     padding: 12px 24px;
@@ -200,8 +227,22 @@ button[type="submit"] {
     font-size: 1rem;
 }
 
+
+#save {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+
 button[type="submit"]:hover {
     background-color: #218838;
+
+}
+
+
+button[type="button"]:hover {
+    background-color: #ff0055;
 
 }
 
