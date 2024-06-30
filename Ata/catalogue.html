@@ -137,7 +137,38 @@ searchForm.addEventListener('submit', async function(event) {
     renderMovies(filteredMovies);
 });
 
-           
+            const movieCardsContainer = document.getElementById('movieCardsContainer');
+
+            const fetchMovies = async () => {
+                const dbRef = ref(db, 'movies');
+                const snapshot = await get(dbRef);
+                if (snapshot.exists()) {
+                    const movies = snapshot.val();
+                    Object.values(movies).forEach(movie => {
+                        const movieCard = document.createElement('div');
+                        movieCard.className = 'card';
+                        movieCard.innerHTML = `
+                            <img class="movie-poster" src="${movie['image_url']}" alt="Movie Poster">
+                            <div class="card-content">
+                                <h2 class="movie-title">${movie.title}</h2>
+                                <p class="movie-year">${movie.year}</p>
+                                <p class="movie-rating">Rating: ${movie.rate}/10</p>
+                                <div class="describe">
+                                    <p>${movie.description.split(' ').slice(0, 16).join(' ')}...</p>
+<a href="../Forat/Movie_details.html?movie_id=${movie.movie_id}"><button class="btn btn-primary text-white">View Details</button></a>
+                                </div>
+                            </div>
+                        `;
+                        movieCardsContainer.appendChild(movieCard);
+                    });
+                } else {
+                    console.log("No data available");
+                }
+            };
+
+            fetchMovies();
+        });
+
     </script>
 </body>
 </html>
