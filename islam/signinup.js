@@ -52,7 +52,7 @@ signUpForm.addEventListener("submit", async (e) => {
       password
     );
     const user = userCredential.user;
-    const userData = { username, email, gender };
+    const userData = { username, email, password, gender };
 
     await setDoc(doc(firestore, "users", user.uid), userData);
     await set(ref(database, `users/${user.uid}`), userData);
@@ -64,7 +64,7 @@ signUpForm.addEventListener("submit", async (e) => {
       window.location.href = "/";
     }, 1000);
   } catch (error) {
-    registrationMessage.textContent = `Error: ${error.message}`;
+    registrationMessage.textContent = `  ${error.message}`;
   }
 });
 
@@ -109,16 +109,21 @@ signInForm.addEventListener("submit", async (e) => {
       window.location.href = "/";
     }, 1000);
   } catch (error) {
-    signInMessage.textContent = `Error: ${error.message}`;
+    signInMessage.textContent = `  ${error.message}`;
   }
 });
 
-const socialSignIn = async (provider, messageElement, successMessage) => {
+const googleSignInBtn = document.getElementById("googleSignInBtn");
+googleSignInBtn.addEventListener("click", async () => {
+  const provider = new GoogleAuthProvider();
+
   try {
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
-    const [username] = user.displayName ? user.displayName.split(" ") : [""];
 
+    const [username] = user.displayName
+      ? user.displayName.split(" ")
+      : ["", ""];
     const userData = {
       username,
       email: user.email,
@@ -130,49 +135,96 @@ const socialSignIn = async (provider, messageElement, successMessage) => {
 
     localStorage.setItem("userData", JSON.stringify(userData));
 
-    messageElement.textContent = successMessage;
+    registrationMessage.textContent = "Google sign-in successful!";
     setTimeout(() => {
       window.location.href = "/";
-    }, 1000);
+    }, 4000);
   } catch (error) {
-    messageElement.textContent = `Error: ${error.message}`;
+    registrationMessage.textContent = `  ${error.message}`;
   }
-};
-
-const googleSignInBtn = document.getElementById("googleSignInBtn");
-googleSignInBtn.addEventListener("click", () => {
-  socialSignIn(
-    new GoogleAuthProvider(),
-    registrationMessage,
-    "Google sign-in successful!"
-  );
 });
 
 const googleSignUpBtn = document.getElementById("googleSignUpBtn");
-googleSignUpBtn.addEventListener("click", () => {
-  socialSignIn(
-    new GoogleAuthProvider(),
-    registrationMessage,
-    "Google sign-up successful!"
-  );
+googleSignUpBtn.addEventListener("click", async () => {
+  const provider = new GoogleAuthProvider();
+
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+
+    const [username] = user.displayName
+      ? user.displayName.split(" ")
+      : ["", ""];
+    const userData = {
+      username,
+      email: user.email,
+      uid: user.uid,
+    };
+
+    await setDoc(doc(firestore, "users", user.uid), userData);
+    await set(ref(database, `users/${user.uid}`), userData);
+
+    localStorage.setItem("userData", JSON.stringify(userData));
+
+    registrationMessage.textContent = "Google sign-up successful!";
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 4000);
+  } catch (error) {
+    registrationMessage.textContent = `  ${error.message}`;
+  }
 });
 
 const facebookSignInBtn = document.getElementById("facebookSignInBtn");
-facebookSignInBtn.addEventListener("click", () => {
-  socialSignIn(
-    new FacebookAuthProvider(),
-    registrationMessage,
-    "Facebook sign-in successful!"
-  );
+facebookSignInBtn.addEventListener("click", async () => {
+  const provider = new FacebookAuthProvider();
+
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+    const userData = {
+      username: user.displayName.split(" ")[0],
+      email: user.email,
+      uid: user.uid,
+    };
+
+    await setDoc(doc(firestore, "users", user.uid), userData);
+
+    localStorage.setItem("userData", JSON.stringify(userData));
+
+    registrationMessage.textContent = "Facebook sign-in successful!";
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 4000);
+  } catch (error) {
+    registrationMessage.textContent = `  ${error.message}`;
+  }
 });
 
 const facebookSignUpBtn = document.getElementById("facebookSignUpBtn");
-facebookSignUpBtn.addEventListener("click", () => {
-  socialSignIn(
-    new FacebookAuthProvider(),
-    registrationMessage,
-    "Facebook sign-up successful!"
-  );
+facebookSignUpBtn.addEventListener("click", async () => {
+  const provider = new FacebookAuthProvider();
+
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+    const userData = {
+      username: user.displayName.split(" ")[0],
+      email: user.email,
+      uid: user.uid,
+    };
+
+    await setDoc(doc(firestore, "users", user.uid), userData);
+
+    localStorage.setItem("userData", JSON.stringify(userData));
+
+    registrationMessage.textContent = "Facebook sign-up successful!";
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 4000);
+  } catch (error) {
+    registrationMessage.textContent = `  ${error.message}`;
+  }
 });
 
 const sign_in_btn = document.querySelector("#sign-in-btn");
