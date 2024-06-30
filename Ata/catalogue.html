@@ -1,118 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cimakids Website</title>
-    <!-- font awesome cdn link  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-    <link rel="stylesheet" href="catalogue.css" />
-  </head>
-  <body>
-    <!-- header section starts -->
-    <header class="header">
-      <a href="#" class="logo" id="logo-icon">
-        <img src="./image/boys.png" />
-      </a>
 
-      <nav class="navbar">
-        <a href="#home">home</a>
-        <a href="#about">about</a>
-        <a href="#catalog">catalog</a>
-        <a href="#contact">contact</a>
-      </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cimakids Website</title>
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="catalogue.css" />
+</head>
 
-      <div class="icons">
-        <div class="fas fa-user" id="login-btn"></div>
-        <div class="fas fa-bars" id="menu-btn"></div>
-      </div>
+<body>
+  <!-- header section starts -->
+  <header class="header">
+    <a href="#" class="logo" id="logo-icon">
+      <img src="./image/boys.png" />
+    </a>
 
-      <form action="" class="login-form">
-        <h3>login now</h3>
-        <input type="submit" value="login now" class="btn" />
-      </form>
-    </header>
-    <!-- header section ends -->
-    <!-- Search Bar -->
-    <div class="search-block">
-      <form id="search-form">
-          <input type="text" id="search-input" placeholder="Search movies by title...">
-          <button type="submit" class="btn btn-secondary">Search</button>
-      </form>
+    <nav class="navbar">
+      <a href="../Othman/Visitor Home/visitorHome.html">home</a>
+      <a href="../Othman/About Us/aboutUs.html">About</a>
+      <a href="../Ata/catalogue.html">Catalogue</a>
+      <a href="../Othman/Contact Us/contactUs.html">Contact</a>
+    </nav>
+
+    <div class="icons">
+      <div class="fas fa-user" id="login-btn"></div>
+      <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+
+    <form action="" class="login-form">
+      <h3>login now</h3>
+      <input type="submit" value="login now" class="btn" />
+    </form>
+  </header>
+  <!-- header section ends -->
+  <!-- Search Bar -->
+  <div class="search-block">
+    <form id="search-form">
+      <input type="text" id="search-input" placeholder="Search movies by title...">
+      <button type="submit" class="btn btn-secondary">Search</button>
+    </form>
   </div>
 
   <!-- Filter Section -->
   <div class="filter-block">
-      <form id="filter-form">
-          <label><input type="checkbox" id="adventure" name="genre" value="adventure"> Adventure</label>
-          <label><input type="checkbox" id="family" name="genre" value="family"> Family</label>
-          <label><input type="checkbox" id="comedy" name="genre" value="comedy"> Comedy</label>
-          <button type="button" class="btn btn-secondary" id="filter-button">Filter</button>
-      </form>
+    <form id="filter-form">
+      <label><input type="checkbox" id="adventure" name="genre" value="adventure"> Adventure</label>
+      <label><input type="checkbox" id="family" name="genre" value="family"> Family</label>
+      <label><input type="checkbox" id="comedy" name="genre" value="comedy"> Comedy</label>
+      <button type="button" class="btn btn-secondary" id="filter-button">Filter</button>
+    </form>
   </div>
 
   <div class="wrapper">
-      <div id="movieCardsContainer" class="row">
-           <!-- Movie cards here  -->
-      </div>
+    <div id="movieCardsContainer" class="row">
+      <!-- Movie cards here  -->
+    </div>
   </div>
-    
 
 
 
-    <!--footer section starts-->
-    <section class="footer">
-      <div class="box-container">
-        <div class="box">
-          <a href="#" class="logo" id="logo-icon">
-            <img src="./image/boys.png" />
-          </a>
-          <p>
-            Join us again for more fun-filled adventures and unforgettable
-            stories!
-          </p>
-        </div>
 
-        <div class="box">
-          <h3 style="color: #e9768f">quick links</h3>
-        </div>
+  <!--footer section starts-->
+  <section class="footer">
+    <div class="box-container">
+      <div class="box">
+        <a href="#" class="logo" id="logo-icon">
+          <img src="./image/boys.png" />
+        </a>
+        <p>
+          Join us again for more fun-filled adventures and unforgettable
+          stories!
+        </p>
+      </div>
 
-        <div class="box">
-          <h3>category</h3>
-          <a href="#"> <i class="fas fa-caret-right"></i> about us</a>
-          <a href="#"> <i class="fas fa-caret-right"></i> contact us</a>
-        </div>
+      <div class="box">
+        <h3 style="color: #e9768f">quick links</h3>
+      </div>
 
-        <div class="box">
-          <h3>extra links</h3>
+      <div class="box">
+        <h3>Category</h3>
+        <a href="../Othman/About Us/aboutUs.html"> <i class="fas fa-caret-right"></i> About Us</a>
+        <a href="../Othman/Contact Us/contactUs.html"> <i class="fas fa-caret-right"></i> Contact Us</a>
+      </div>
 
-          <a href="#"> <i class="fas fa-caret-right"></i> catalog</a>
-          <a href="#"> <i class="fas fa-caret-right"></i> FAQs</a>
-        </div>
+      <div class="box">
+        <h3>Extra Links</h3>
+
+        <a href="../Ata/catalogue.html"> <i class="fas fa-caret-right"></i> Catalogue</a>
+        <a href="../islam/additionalFeilds/index.html"> <i class="fas fa-caret-right"></i> FAQs</a>
       </div>
 
       <div class="credit">
         &copy; copyright @ 2024 by <span>cima Kids</span>
       </div>
-    </section>
-    <!-- footer section ends -->
+  </section>
+  <!-- footer section ends -->
 
-    <script src="app.js"></script>
+  <script src="app.js"></script>
 
-    <script>
-      lightGallery(document.querySelector(".gallery .gallery-container"));
-    </script>
+  <script>
+    lightGallery(document.querySelector(".gallery .gallery-container"));
+  </script>
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
-  import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-  const firebaseConfig = {
+    const firebaseConfig = {
       apiKey: "AIzaSyCiL9I5hokjct0j1WiLg5ZB0erVv094aiw",
       authDomain: "cima-kids.firebaseapp.com",
       databaseURL: "https://cima-kids-default-rtdb.europe-west1.firebasedatabase.app",
@@ -121,41 +119,41 @@
       messagingSenderId: "324919675126",
       appId: "1:324919675126:web:af1fb7392f829b2f2104d7",
       measurementId: "G-WZHXGFQLY0"
-  };
+    };
 
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const db = getDatabase();
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getDatabase();
 
-  // document.addEventListener('DOMContentLoaded', function() {
-  //     document.getElementById('navbarToggle').addEventListener('click', function() {
-  //         var links = document.getElementById('navbarLinks');
-  //         links.classList.toggle('active');
-  //     });
-  // });
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     document.getElementById('navbarToggle').addEventListener('click', function() {
+    //         var links = document.getElementById('navbarLinks');
+    //         links.classList.toggle('active');
+    //     });
+    // });
 
-  const movieCardsContainer = document.getElementById('movieCardsContainer');
+    const movieCardsContainer = document.getElementById('movieCardsContainer');
 
-const fetchMovies = async () => {
-const dbRef = ref(db, 'movies');
-const snapshot = await get(dbRef);
-if (snapshot.exists()) {
-  const movies = snapshot.val();
-  return movies; // Return movies data
-} else {
-  console.log("No data available");
-  return []; // Return an empty array if no data
-}
-};
+    const fetchMovies = async () => {
+      const dbRef = ref(db, 'movies');
+      const snapshot = await get(dbRef);
+      if (snapshot.exists()) {
+        const movies = snapshot.val();
+        return movies; // Return movies data
+      } else {
+        console.log("No data available");
+        return []; // Return an empty array if no data
+      }
+    };
 
-const renderMovies = (movies) => {
-movieCardsContainer.innerHTML = ''; // Clear existing movie cards
+    const renderMovies = (movies) => {
+      movieCardsContainer.innerHTML = ''; // Clear existing movie cards
 
-Object.values(movies).forEach(movie => {
-  if (!movie.movie_id) return; // Skip movie card if ID is null or undefined
-  const movieCard = document.createElement('div');
-  movieCard.className = 'card';
-  movieCard.innerHTML = `
+      Object.values(movies).forEach(movie => {
+        if (!movie.movie_id) return; // Skip movie card if ID is null or undefined
+        const movieCard = document.createElement('div');
+        movieCard.className = 'card';
+        movieCard.innerHTML = `
       <img class="movie-poster" src="${movie['image_url']}" alt="Movie Poster">
       <div class="card-content">
           <h2 class="movie-title">${movie.title}</h2>
@@ -166,65 +164,66 @@ Object.values(movies).forEach(movie => {
               <button class="btn btn-primary text-white">View Details</button>
           </div>
       </div> `;
-  movieCardsContainer.appendChild(movieCard);
-});
-};
+        movieCardsContainer.appendChild(movieCard);
+      });
+    };
 
-const loadAllMovies = async () => {
-const movies = await fetchMovies();
-renderMovies(movies);
-};
+    const loadAllMovies = async () => {
+      const movies = await fetchMovies();
+      renderMovies(movies);
+    };
 
-loadAllMovies();
+    loadAllMovies();
 
-const searchForm = document.getElementById('search-form');
-const searchInput = document.getElementById('search-input');
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search-input');
 
-searchForm.addEventListener('submit', async function(event) {
-event.preventDefault();
-const searchTerm = searchInput.value.toLowerCase().trim();
+    searchForm.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      const searchTerm = searchInput.value.toLowerCase().trim();
 
-const movies = await fetchMovies();
+      const movies = await fetchMovies();
 
-const filteredMovies = Object.values(movies).filter(movie => {
-  return movie.movie_id && movie.title.toLowerCase().includes(searchTerm); // Check for non-null ID
-console.log('Checking movie:', movie);
-console.log('Search term:', searchTerm);
-return movie.title.toLowerCase().includes(searchTerm);
-});
+      const filteredMovies = Object.values(movies).filter(movie => {
+        return movie.movie_id && movie.title.toLowerCase().includes(searchTerm); // Check for non-null ID
+        console.log('Checking movie:', movie);
+        console.log('Search term:', searchTerm);
+        return movie.title.toLowerCase().includes(searchTerm);
+      });
 
-if (filteredMovies.length === 0) {
-  alert('No movies found');
-}
+      if (filteredMovies.length === 0) {
+        alert('No movies found');
+      }
 
-else renderMovies(filteredMovies);
-});
+      else renderMovies(filteredMovies);
+    });
 
-const filterButton = document.getElementById('filter-button');
-const familyCheckbox = document.getElementById('family');
-const adventureCheckbox = document.getElementById('adventure');
-const comedyCheckbox = document.getElementById('comedy');
+    const filterButton = document.getElementById('filter-button');
+    const familyCheckbox = document.getElementById('family');
+    const adventureCheckbox = document.getElementById('adventure');
+    const comedyCheckbox = document.getElementById('comedy');
 
-filterButton.addEventListener('click', async function() {
-const movies = await fetchMovies();
+    filterButton.addEventListener('click', async function () {
+      const movies = await fetchMovies();
 
-const selectedGenres = [];
-if (familyCheckbox.checked) selectedGenres.push('family');
-if (adventureCheckbox.checked) selectedGenres.push('adventure');
-if (comedyCheckbox.checked) selectedGenres.push('comedy');
+      const selectedGenres = [];
+      if (familyCheckbox.checked) selectedGenres.push('family');
+      if (adventureCheckbox.checked) selectedGenres.push('adventure');
+      if (comedyCheckbox.checked) selectedGenres.push('comedy');
 
-let filteredMovies;
-if (selectedGenres.length === 0) {
-  filteredMovies = Object.values(movies);
-} else {
-  filteredMovies = Object.values(movies).filter(movie => 
-      selectedGenres.includes(movie.genre)
-  );
-}
+      let filteredMovies;
+      if (selectedGenres.length === 0) {
+        filteredMovies = Object.values(movies);
+      } else {
+        filteredMovies = Object.values(movies).filter(movie =>
+          selectedGenres.includes(movie.genre)
+        );
+      }
 
-renderMovies(filteredMovies);
-});
-</script>
+      renderMovies(filteredMovies);
+    });
+  </script>
 
-  </body>
+</body>
+
 </html>

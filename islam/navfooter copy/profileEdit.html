@@ -13,17 +13,16 @@
 </head>
 
 <body>
-  <!-- header section starts -->
   <header class="header">
     <a href="#" class="logo" id="logo-icon">
       <img src="./image/boys.png" />
     </a>
 
     <nav class="navbar">
-      <a href="../Othman/Visitor Home/visitorHome.html">home</a>
-      <a href="../Othman/About Us/aboutUs.html">About</a>
-      <a href="../Ata/catalogue.html">Catalogue</a>
-      <a href="../Othman/Contact Us/contactUs.html">Contact</a>
+      <a href="#home">home</a>
+      <a href="#about">about</a>
+      <a href="#catalog">catalog</a>
+      <a href="#contact">contact</a>
     </nav>
 
     <div class="icons">
@@ -36,7 +35,7 @@
       <input type="submit" value="login now" class="btn" />
     </form>
   </header>
-  <!-- header section ends -->
+  <!-- header section starts -->
   <section class="profile-section">
     <div class="user-details">
       <div class="user-avatar">
@@ -47,7 +46,7 @@
         <p class="user-email" id="user_email"></p>
       </div>
       <div class="edit-button">
-        <a href="profileEdit.html"><button>Edit</button></a>
+        <button type="submit" id="save">Save</button>
       </div>
     </div>
 
@@ -56,84 +55,70 @@
       <form id="information-form">
         <div class="form-group">
           <label for="name">Name:</label>
-          <input type="text" id="name" name="name" readonly>
+          <input type="text" id="name" name="name">
         </div>
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" readonly>
+          <input type="email" id="email" name="email">
         </div>
         <div class="form-group">
           <label for="gender">Gender:</label>
-          <input type="text" id="gender" name="gender" readonly>
+          <input type="text" id="gender" name="gender">
         </div>
         <div class="form-group">
           <label for="country">Country:</label>
-          <input type="text" id="country" name="country" readonly>
+          <input type="text" id="country" name="country">
         </div>
-        <!-- <button type="submit">Save</button> -->
+        <div class="save_button">
+          <a href="profile.html"><button type="button" id="cancel">Cancel</button></a>
+        </div>
       </form>
       <div class="watched">
-        <h4>To Watch</h4>
+        <h4>Watched</h4>
         <div class="movies_card">
-          <a href="../Forat/Movie_details.html?">
-            <div class="movie">
-              <img src="https://i.pinimg.com/564x/20/65/b5/2065b50f64bbce9d837072e2f46cd4a8.jpg" alt="">
-              <div>
-                <h6>The Lego Movie</h6>
-                <p>2014</p>
-              </div>
+          <div class="movie">
+            <img src="https://i.pinimg.com/564x/20/65/b5/2065b50f64bbce9d837072e2f46cd4a8.jpg" alt="">
+            <div>
+              <h6>The Lego Movie</h6>
+              <p>2014</p>
             </div>
-          </a>
+          </div>
+          <div class="movie">
+            <img src="https://i.pinimg.com/236x/91/7d/c7/917dc76150f5ece7073521522ba54cd8.jpg" alt="">
+            <div>
+              <h6>Inside Out</h6>
+              <p>2015</p>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="https://i.pinimg.com/236x/b0/d7/da/b0d7daecd9ca82382297413a85735995.jpg" alt="">
+            <div>
+              <h6>Wreck-It Ralph</h6>
+              <p>2012</p>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="https://i.pinimg.com/564x/99/6e/94/996e940def54448e075e2405a77e3011.jpg" alt="">
+            <div>
+              <h6>Monsters University</h6>
+              <p>2013</p>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="https://i.pinimg.com/564x/da/6c/b2/da6cb2621d1b64217a710562e5897a18.jpg" alt="">
+            <div>
+              <h6>Cloudy</h6>
+              <p>2013</p>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="https://i.pinimg.com/564x/f0/20/79/f020796b3db1385b63cca419c075b733.jpg" alt="">
+            <div>
+              <h6>Penguins</h6>
+              <p>2014</p>
+            </div>
+          </div>
 
-          <a href="../Forat/Movie_details.html?">
-            <div class="movie">
-              <img src="https://i.pinimg.com/236x/91/7d/c7/917dc76150f5ece7073521522ba54cd8.jpg" alt="">
-              <div>
-                <h6>Inside Out</h6>
-                <p>2015</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="../Forat/Movie_details.html?">
-            <div class="movie">
-              <img src="https://i.pinimg.com/236x/b0/d7/da/b0d7daecd9ca82382297413a85735995.jpg" alt="">
-              <div>
-                <h6>Wreck-It Ralph</h6>
-                <p>2012</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="../Forat/Movie_details.html?">
-            <div class="movie">
-              <img src="https://i.pinimg.com/564x/99/6e/94/996e940def54448e075e2405a77e3011.jpg" alt="">
-              <div>
-                <h6>Monsters University</h6>
-                <p>2013</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="../Forat/Movie_details.html?">
-            <div class="movie">
-              <img src="https://i.pinimg.com/564x/da/6c/b2/da6cb2621d1b64217a710562e5897a18.jpg" alt="">
-              <div>
-                <h6>Cloudy</h6>
-                <p>2013</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="../Forat/Movie_details.html?">
-            <div class="movie">
-              <img src="https://i.pinimg.com/564x/f0/20/79/f020796b3db1385b63cca419c075b733.jpg" alt="">
-              <div>
-                <h6>Penguins</h6>
-                <p>2014</p>
-              </div>
-            </div>
-          </a>
         </div>
       </div>
     </div>
@@ -144,13 +129,12 @@
         <li><a href="#"><img src="./image/social.png" alt="Facebook"></a></li>
         <li><a href="#"><img src="./image/instagram.png" alt="Twitter"></a></li>
         <li><a href="#"><img src="./image/facebook.png" alt="Instagram"></a></li>
+        <!-- Add more social media icons as needed -->
       </ul>
       <div class="save_button">
-        <a href="../islam/signinup.html"><button type="button" id="out">Log out</button></a>
+        <a href="profile.html"><button type="button" id="out">Log out</button></a>
       </div>
-
     </div>
-
   </section>
   <!--footer section starts-->
   <section class="footer">
@@ -170,16 +154,16 @@
       </div>
 
       <div class="box">
-        <h3>Category</h3>
-        <a href="../Othman/About Us/aboutUs.html"> <i class="fas fa-caret-right"></i> About Us</a>
-        <a href="../Othman/Contact Us/contactUs.html"> <i class="fas fa-caret-right"></i> Contact Us</a>
+        <h3>category</h3>
+        <a href="#"> <i class="fas fa-caret-right"></i> about us</a>
+        <a href="#"> <i class="fas fa-caret-right"></i> contact us</a>
       </div>
 
       <div class="box">
-        <h3>Extra Links</h3>
+        <h3>extra links</h3>
 
-        <a href="../Ata/catalogue.html"> <i class="fas fa-caret-right"></i> Catalogue</a>
-        <a href="../islam/additionalFeilds/index.html"> <i class="fas fa-caret-right"></i> FAQs</a>
+        <a href="#"> <i class="fas fa-caret-right"></i> catalog</a>
+        <a href="#"> <i class="fas fa-caret-right"></i> FAQs</a>
       </div>
     </div>
 

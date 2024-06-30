@@ -1,7 +1,7 @@
-* {
+/* * {
   padding: 0;
   margin: 0;
-}
+} */
 
 .aboutUs {
   margin-top: 50px;
@@ -9,11 +9,11 @@
   padding-right: 100px;
   padding-top: 50px;
   padding-bottom: 50px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   background-color: aliceblue;
 }
 
-img {
+#img_about {
   width: 300px;
   height: 500px;
   border-radius: 19px;
@@ -27,5 +27,9 @@ img {
   .aboutUs {
     padding-left: 50px !important;
     padding-right: 50px;
+  }
+
+  #img_about {
+    margin-top: 15px;
   }
 }
