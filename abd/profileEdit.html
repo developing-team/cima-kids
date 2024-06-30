@@ -19,11 +19,11 @@
                 <img src="./pictures/user.png" alt="User Avatar">
             </div>
             <div class="user-info">
-                <h1 class="user-name">John Doe</h1>
-                <p class="user-email">john.doe@example.com</p>
+                <h1 class="user-name" id="user_name"></h1>
+                <p class="user-email" id="user_email"></p>
             </div>
             <div class="edit-button">
-                <button>Edit</button>
+                <button type="submit" id="save">Save</button>
             </div>
         </div>
 
@@ -32,33 +32,70 @@
             <form id="information-form">
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" value="John Doe">
+                    <input type="text" id="name" name="name">
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="john.doe@example.com">
+                    <input type="email" id="email" name="email">
                 </div>
                 <div class="form-group">
                     <label for="gender">Gender:</label>
-                    <input type="text" id="gender" name="gender" value="Male">
+                    <input type="text" id="gender" name="gender">
                 </div>
                 <div class="form-group">
                     <label for="country">Country:</label>
-                    <input type="text" id="country" name="country" value="Country Name">
+                    <input type="text" id="country" name="country">
                 </div>
                 <div class="save_button">
-                    <button type="submit">Save</button>
+                    <a href="profile.html"><button type="button" id="cancel">Cancel</button></a>
                 </div>
             </form>
             <div class="watched">
                 <h4>Watched</h4>
                 <div class="movies_card">
-                    <div class="movie"></div>
-                    <div class="movie"></div>
-                    <div class="movie"></div>
-                    <div class="movie"></div>
-                    <div class="movie"></div>
-                    <div class="movie"></div>
+                    <div class="movie">
+                        <img src="https://i.pinimg.com/564x/20/65/b5/2065b50f64bbce9d837072e2f46cd4a8.jpg" alt="">
+                        <div>
+                            <h6>The Lego Movie</h6>
+                            <p>2014</p>
+                        </div>
+                    </div>
+                    <div class="movie">
+                        <img src="https://i.pinimg.com/236x/91/7d/c7/917dc76150f5ece7073521522ba54cd8.jpg" alt="">
+                        <div>
+                            <h6>Inside Out</h6>
+                            <p>2015</p>
+                        </div>
+                    </div>
+                    <div class="movie">
+                        <img src="https://i.pinimg.com/236x/b0/d7/da/b0d7daecd9ca82382297413a85735995.jpg" alt="">
+                        <div>
+                            <h6>Wreck-It Ralph</h6>
+                            <p>2012</p>
+                        </div>
+                    </div>
+                    <div class="movie">
+                        <img src="https://i.pinimg.com/564x/99/6e/94/996e940def54448e075e2405a77e3011.jpg" alt="">
+                        <div>
+                            <h6>Monsters University</h6>
+                            <p>2013</p>
+                        </div>
+                    </div>
+                    <div class="movie">
+                        <img src="https://i.pinimg.com/564x/da/6c/b2/da6cb2621d1b64217a710562e5897a18.jpg" alt="">
+                        <div>
+                            <h6>Cloudy</h6>
+                            <p>2013</p>
+                        </div>
+                    </div>
+                    <div class="movie">
+                        <img src="https://i.pinimg.com/564x/f0/20/79/f020796b3db1385b63cca419c075b733.jpg" alt="">
+                        <div>
+                            <h6>Penguins</h6>
+                            <p>2014</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -76,6 +113,115 @@
     <footer>
 
     </footer>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+        import { getDatabase, get, set, ref, remove, update, child } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyCiL9I5hokjct0j1WiLg5ZB0erVv094aiw",
+            authDomain: "cima-kids.firebaseapp.com",
+            projectId: "cima-kids",
+            storageBucket: "cima-kids.appspot.com",
+            messagingSenderId: "324919675126",
+            appId: "1:324919675126:web:af1fb7392f829b2f2104d7",
+            measurementId: "G-WZHXGFQLY0",
+            databaseURL: "https://cima-kids-default-rtdb.europe-west1.firebasedatabase.app"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+
+        const db = getDatabase(app);
+
+        const db_ref = ref(db);
+
+        let randomInt = Math.floor(Math.random() * (48 - 0 + 1)) + 0;
+        console.log(randomInt);
+
+        // ------------------------get data-------------------------------------
+        get(child(db_ref, "users/YMbtqu3xKRZUSDXbIxGMbgOAaSn1"))
+            .then((stored_data) => {
+                document.getElementById("user_name").textContent = stored_data.val().username;
+                document.getElementById("user_email").textContent = stored_data.val().email;
+                document.getElementById("name").value = stored_data.val().username;
+                document.getElementById("email").value = stored_data.val().email;
+                document.getElementById("gender").value = stored_data.val().gender;
+                document.getElementById("country").value = "Jordan";
+
+            })
+            .then(() => { })
+            .catch((error) => { error })
+        // ------------------------get data-------------------------------------
+
+
+        // ------------------------update data-------------------------------------
+        function update_date(e) {
+            e.preventDefault();
+            update(ref(db, "users/YMbtqu3xKRZUSDXbIxGMbgOAaSn1"), {
+
+                email: document.getElementById("email").value,
+                gender: document.getElementById("gender").value,
+                username: document.getElementById("name").value
+
+            })
+                .then(() => { alert("The data update successfully!!!"); })
+                .catch((error) => { alert(error); });
+        }
+
+
+
+
+        document.getElementById("save").addEventListener("click", update_date);
+        // ------------------------update data-------------------------------------
+
+        // ------------------------get card data-------------------------------------
+
+        // get(child(db_ref, "movies/m" + randomInt))
+        //     .then((stored_data) => {
+        //         document.getElementById("user_name").textContent = stored_data.val().username;
+        //         document.getElementById("user_email").textContent = stored_data.val().email;
+        //         document.getElementById("name").value = stored_data.val().username;
+        //         document.getElementById("email").value = stored_data.val().email;
+        //         document.getElementById("gender").value = stored_data.val().gender;
+        //         document.getElementById("country").value = "Jordan";
+
+        //     })
+        //     .then(() => { })
+        //     .catch((error) => { error })
+
+        // ------------------------generate cards-------------------------------------
+        // const card_container = document.getElementById("movies_card");
+
+        // get(child(db_ref, "movies/m04"))
+        //     .then((stored_data) => {
+        //         const card = document.createElement("div");
+        //         card.classList.add("card");
+
+        //         card.innerHTML = `
+        //                         <div>
+        //                         <h3>${stored_data.val().title}</h3>
+        //                         <p>$${stored_data.val().year}</p>
+        //                         </div>
+        //                         `;
+
+
+        //         const imageUrl = stored_data.value.image_url || '';
+
+        //         card.style.backgroundImage = URL(imageUrl);
+
+        //         main_s.appendChild(card);
+        //     })
+        //     .catch((error) => { alert(error); });
+
+    </script>
 </body>
 
 </html>
