@@ -16,7 +16,7 @@
     <section class="profile-section">
         <div class="user-details">
             <div class="user-avatar">
-                <img src="./pictures/user.png" alt="User Avatar">
+                <img src="./pictures/uicoon.png" alt="User Avatar">
             </div>
             <div class="user-info">
                 <h1 class="user-name" id="user_name"></h1>
@@ -50,50 +50,67 @@
                 <!-- <button type="submit">Save</button> -->
             </form>
             <div class="watched">
-                <h4>Watched</h4>
+                <h4>To Watch</h4>
                 <div class="movies_card">
-                    <div class="movie">
-                        <img src="https://i.pinimg.com/564x/20/65/b5/2065b50f64bbce9d837072e2f46cd4a8.jpg" alt="">
-                        <div>
-                            <h6>The Lego Movie</h6>
-                            <p>2014</p>
+                    <a href="../Forat/Movie_details.html?">
+                        <div class="movie">
+                            <img src="https://i.pinimg.com/564x/20/65/b5/2065b50f64bbce9d837072e2f46cd4a8.jpg" alt="">
+                            <div>
+                                <h6>The Lego Movie</h6>
+                                <p>2014</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="movie">
-                        <img src="https://i.pinimg.com/236x/91/7d/c7/917dc76150f5ece7073521522ba54cd8.jpg" alt="">
-                        <div>
-                            <h6>Inside Out</h6>
-                            <p>2015</p>
+                    </a>
+
+                    <a href="../Forat/Movie_details.html?">
+                        <div class="movie">
+                            <img src="https://i.pinimg.com/236x/91/7d/c7/917dc76150f5ece7073521522ba54cd8.jpg" alt="">
+                            <div>
+                                <h6>Inside Out</h6>
+                                <p>2015</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="movie">
-                        <img src="https://i.pinimg.com/236x/b0/d7/da/b0d7daecd9ca82382297413a85735995.jpg" alt="">
-                        <div>
-                            <h6>Wreck-It Ralph</h6>
-                            <p>2012</p>
+                    </a>
+
+                    <a href="../Forat/Movie_details.html?">
+                        <div class="movie">
+                            <img src="https://i.pinimg.com/236x/b0/d7/da/b0d7daecd9ca82382297413a85735995.jpg" alt="">
+                            <div>
+                                <h6>Wreck-It Ralph</h6>
+                                <p>2012</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="movie">
-                        <img src="https://i.pinimg.com/564x/99/6e/94/996e940def54448e075e2405a77e3011.jpg" alt="">
-                        <div>
-                            <h6>Monsters University</h6>
-                            <p>2013</p>
+                    </a>
+
+                    <a href="../Forat/Movie_details.html?">
+                        <div class="movie">
+                            <img src="https://i.pinimg.com/564x/99/6e/94/996e940def54448e075e2405a77e3011.jpg" alt="">
+                            <div>
+                                <h6>Monsters University</h6>
+                                <p>2013</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="movie">
-                        <img src="https://i.pinimg.com/564x/da/6c/b2/da6cb2621d1b64217a710562e5897a18.jpg" alt="">
-                        <div>
-                            <h6>Cloudy</h6>
-                            <p>2013</p>
+                    </a>
+
+                    <a href="../Forat/Movie_details.html?">
+                        <div class="movie">
+                            <img src="https://i.pinimg.com/564x/da/6c/b2/da6cb2621d1b64217a710562e5897a18.jpg" alt="">
+                            <div>
+                                <h6>Cloudy</h6>
+                                <p>2013</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="movie">
-                        <img src="https://i.pinimg.com/564x/f0/20/79/f020796b3db1385b63cca419c075b733.jpg" alt="">
-                        <div>
-                            <h6>Penguins</h6>
-                            <p>2014</p>
+                    </a>
+
+                    <a href="../Forat/Movie_details.html?">
+                        <div class="movie">
+                            <img src="https://i.pinimg.com/564x/f0/20/79/f020796b3db1385b63cca419c075b733.jpg" alt="">
+                            <div>
+                                <h6>Penguins</h6>
+                                <p>2014</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -104,9 +121,13 @@
                 <li><a href="#"><img src="./pictures/social.png" alt="Facebook"></a></li>
                 <li><a href="#"><img src="./pictures/instagram.png" alt="Twitter"></a></li>
                 <li><a href="#"><img src="./pictures/facebook.png" alt="Instagram"></a></li>
-                <!-- Add more social media icons as needed -->
             </ul>
+            <div class="save_button">
+                <a href="profile.html"><button type="button" id="out">Log out</button></a>
+            </div>
+
         </div>
+
     </section>
     <footer>
 
@@ -145,7 +166,7 @@
         // function refresh(e) {
         //     e.preventDefault();
 
-        
+
 
         get(child(db_ref, "users/YMbtqu3xKRZUSDXbIxGMbgOAaSn1"))
             .then((stored_data) => {

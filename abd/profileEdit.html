@@ -16,7 +16,7 @@
     <section class="profile-section">
         <div class="user-details">
             <div class="user-avatar">
-                <img src="./pictures/user.png" alt="User Avatar">
+                <img src="./pictures/uicoon.png" alt="User Avatar">
             </div>
             <div class="user-info">
                 <h1 class="user-name" id="user_name"></h1>
@@ -108,6 +108,9 @@
                 <li><a href="#"><img src="./pictures/facebook.png" alt="Instagram"></a></li>
                 <!-- Add more social media icons as needed -->
             </ul>
+            <div class="save_button">
+                <a href="profile.html"><button type="button" id="out">Log out</button></a>
+            </div>
         </div>
     </section>
     <footer>
@@ -141,10 +144,10 @@
 
         const db = getDatabase(app);
 
-        const db_ref = ref(db);
 
         let randomInt = Math.floor(Math.random() * (48 - 0 + 1)) + 0;
         console.log(randomInt);
+        const db_ref = ref(db);
 
         // ------------------------get data-------------------------------------
         get(child(db_ref, "users/YMbtqu3xKRZUSDXbIxGMbgOAaSn1"))
