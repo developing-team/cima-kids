@@ -61,7 +61,7 @@ signUpForm.addEventListener("submit", async (e) => {
 
     registrationMessage.textContent = "Registration successful!";
     setTimeout(() => {
-      window.location.href = "/";
+      window.location.href = "/registerdUser/auth.html";
     }, 1000);
   } catch (error) {
     registrationMessage.textContent = `  ${error.message}`;
@@ -106,7 +106,7 @@ signInForm.addEventListener("submit", async (e) => {
 
     signInMessage.textContent = "Sign-in successful!";
     setTimeout(() => {
-      window.location.href = "/";
+      window.location.href = "/registerdUser/auth.html";
     }, 1000);
   } catch (error) {
     signInMessage.textContent = `  ${error.message}`;
@@ -137,7 +137,7 @@ googleSignInBtn.addEventListener("click", async () => {
 
     registrationMessage.textContent = "Google sign-in successful!";
     setTimeout(() => {
-      window.location.href = "/";
+      window.location.href = "/registerdUser/auth.html";
     }, 4000);
   } catch (error) {
     registrationMessage.textContent = `  ${error.message}`;
@@ -168,7 +168,7 @@ googleSignUpBtn.addEventListener("click", async () => {
 
     registrationMessage.textContent = "Google sign-up successful!";
     setTimeout(() => {
-      window.location.href = "/";
+      window.location.href = "/registerdUser/auth.html";
     }, 4000);
   } catch (error) {
     registrationMessage.textContent = `  ${error.message}`;
@@ -194,7 +194,7 @@ facebookSignInBtn.addEventListener("click", async () => {
 
     registrationMessage.textContent = "Facebook sign-in successful!";
     setTimeout(() => {
-      window.location.href = "/";
+      window.location.href = "/registerdUser/auth.html";
     }, 4000);
   } catch (error) {
     registrationMessage.textContent = `  ${error.message}`;
@@ -220,7 +220,7 @@ facebookSignUpBtn.addEventListener("click", async () => {
 
     registrationMessage.textContent = "Facebook sign-up successful!";
     setTimeout(() => {
-      window.location.href = "/";
+      window.location.href = "/registerdUser/auth.html";
     }, 4000);
   } catch (error) {
     registrationMessage.textContent = `  ${error.message}`;
