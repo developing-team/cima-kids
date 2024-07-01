@@ -20,19 +20,6 @@ arrows.forEach((arrow, i) => {
   console.log(Math.floor(window.innerWidth / 270));
 });
 
-//TOGGLE
-
-const ball = document.querySelector(".toggle-ball");
-const items = document.querySelectorAll(
-  ".container,.movie-list-title,.navbar-container,.sidebar,.left-menu-icon,.toggle"
-);
-
-ball.addEventListener("click", () => {
-  items.forEach((item) => {
-    item.classList.toggle("active");
-  });
-  ball.classList.toggle("active");
-});
 //heroSec
 var options = {
   accessibility: true,
@@ -55,7 +42,21 @@ flkty.on("scroll", function () {
   });
 });
 
-//nav
-document.querySelector(".hamburger-menu").addEventListener("click", () => {
-  document.querySelector(".mobile-menu").classList.toggle("show");
-});
+let loginForm = document.querySelector(".login-form");
+
+document.querySelector("#login-btn").onclick = () => {
+  loginForm.classList.toggle("active");
+  navbar.classList.remove("active");
+};
+
+let navbar = document.querySelector(".navbar");
+
+document.querySelector("#menu-btn").onclick = () => {
+  navbar.classList.toggle("active");
+  loginForm.classList.remove("active");
+};
+
+window.onscroll = () => {
+  loginForm.classList.remove("active");
+  navbar.classList.remove("active");
+};

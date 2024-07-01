@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cimakids Website</title>
+  <!-- Font Awesome CDN link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header section starts -->
+  <header class="header">
+    <a href="#" class="logo" id="logo-icon">
+      <img src="assets/img/boys.png" />
+    </a>
+
+    <nav class="navbar">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#catalog">Catalog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="icons">
+      <div class="fas fa-user" id="login-btn"></div>
+      <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+
+    <form action="" class="login-form">
+      <h3>Login Now</h3>
+      <input type="submit" value="Login Now" class="btn" />
+    </form>
+  </header>
+
+  <div class="container text-center">
+    <div class="cont">
+      <div class="row">
+        <div class="col">
+          <img alt="" class="imagee">
+        </div>
+        <div class="col">
+          <div class="circle-container">
+            <div class="circle"><a href="#name">Name</a></div>
+            <div class="circle"><a href="#Comment">Leave a Comment</a></div>
+          </div>
+          <div class="part-text">
+            <h3>Toy Story</h3>
+            <p>The story of the legendary British outlaw portrayed with the characters as anthropomorphic animals.</p>
+            <span class="poster">8.3</span>
+            <span class="date">1999</span>
+            <div class="icon"><i class="fa-regular fa-circle-play fa-2xl" style="color: #1f3951;"></i> Watch it </div>
+            <section id="Comment">
+              <div id="commentsList"></div>
+              <div id="readMoreComments"><a href="#" id="readMoreLink" style="color: rgb(65, 74, 238);">Read more comments</a></div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="LeaveComment">
+        <div class="comment-box">
+            <h3 style="text-align: left;">Leave A Comment</h3>
+            <form id="commentForm">
+                <div class="form-group">
+                    <input type="text" id="nameInput" placeholder="Enter Your Name">
+                    <span></span>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="emailInput" placeholder="Enter Your Email">
+                    <span></span>
+                </div>
+                <div class="form-group">
+                    <textarea id="messageInput" placeholder="Write a Message"></textarea>
+                    <span class="textarea"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="sendButton" style="background-color: #ee8aa0; width: 20%;">Send Us Now</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer section -->
+    <section class="footer">
+        <div class="box-container">
+          <div class="box">
+            <a href="#" class="logo" id="logo-icon">
+              <img src="./image/boys.png" />
+            </a>
+            <p>
+              Join us again for more fun-filled adventures and unforgettable
+              stories!
+            </p>
+          </div>
+  
+          <div class="box">
+            <h3 style="color: #e9768f">quick links</h3>
+          </div>
+  
+          <div class="box">
+            <h3>category</h3>
+            <a href="#"> <i class="fas fa-caret-right"></i> about us</a>
+            <a href="#"> <i class="fas fa-caret-right"></i> contact us</a>
+          </div>
+  
+          <div class="box">
+            <h3>extra links</h3>
+  
+            <a href="#"> <i class="fas fa-caret-right"></i> catalog</a>
+            <a href="#"> <i class="fas fa-caret-right"></i> FAQs</a>
+          </div>
+        </div>
+  
+        <div class="credit">
+          &copy; copyright @ 2024 by <span>cima Kids</span>
+        </div>
+      </section>
+  </div>
+
+  <!-- JavaScript links -->
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+<!-- config Firebase -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+    import { getDatabase, ref, push, onValue, remove, set } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCiL9I5hokjct0j1WiLg5ZB0erVv094aiw",
+        authDomain: "cima-kids.firebaseapp.com",
+        databaseURL: "https://cima-kids-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "cima-kids",
+        storageBucket: "cima-kids.appspot.com",
+        messagingSenderId: "324919675126",
+        appId: "1:324919675126:web:af1fb7392f829b2f2104d7",
+        measurementId: "G-WZHXGFQLY0"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase(app);
+
+    // for getting movie_id by url query:
+    const urlParams = new URLSearchParams(window.location.search);
+    const movie_id = urlParams.get('movie_id');
+
+// getting movies data:
+function retrieveData() {
+        const movieRef = ref(database, `movies/${movie_id}`);
+        onValue(movieRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                document.querySelector('h3').innerText = data.title;
+                document.querySelector('.part-text p').innerText = data.description;
+                document.querySelector('.poster').innerText = data.rate;
+                document.querySelector('.date').innerText = data.year;
+                document.querySelector('.imagee').src = data.image_url;
+            } else {
+                console.error("No data found");
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        retrieveData();
+        retrieveComments();
+    });
+// push and save comments
+function saveComment(movieId, comment) {
+const commentsRef = ref(database, `movies/${movieId}/comments`);
+push(commentsRef, comment).then(() => {
+    console.log('Comment saved successfully');
+    // No need to retrieve all comments here; just append the new comment
+    const commentsList = document.getElementById('commentsList');
+    const commentElement = document.createElement('div');
+    commentElement.classList.add('single-comment');
+    commentElement.innerHTML = `
+        <div class="part-img">
+            <img src="assets/img/use.jpg" alt="">
+        </div>
+        <div class="part-text">
+            <span class="commentor-name">${comment.name}</span>
+            <p>${comment.message}</p>
+            <button class="edit-btn" data-key="${key}">Edit</button>
+            <button class="delete-btn" data-key="${key}">Delete</button>
+        </div>
+    `;
+    commentsList.appendChild(commentElement);
+}).catch((error) => {
+    console.error('Error saving comment:', error);
+});
+}
+//Update comments function 
+function updateComment(movieId, commentKey, updatedComment) {
+const commentRef = ref(database, `movies/${movieId}/comments/${commentKey}`);
+set(commentRef, updatedComment).then(() => {
+    console.log('Comment updated successfully');
+    // Update the specific comment in the DOM without rebuilding all comments
+    const commentElement = document.querySelector(`[data-key="${commentKey}"]`);
+    if (commentElement) {
+        commentElement.querySelector('.commentor-name').textContent = updatedComment.name;
+        commentElement.querySelector('p').textContent = updatedComment.message;
+    }
+}).catch((error) => {
+    console.error('Error updating comment:', error);
+});
+}
+// Delete comments function
+function deleteComment(movieId, commentKey) {
+        const commentRef = ref(database, `movies/${movieId}/comments/${commentKey}`);
+        remove(commentRef).then(() => {
+            console.log('Comment deleted successfully');
+            retrieveComments(); // تحديث التعليقات بعد الحذف
+        }).catch((error) => {
+            console.error('Error deleting comment:', error);
+        });
+    }
+
+   
+// Retrieve comments function
+function retrieveComments() {
+const commentsRef = ref(database, `movies/${movie_id}/comments`);
+onValue(commentsRef, (snapshot) => {
+    const comments = snapshot.val();
+    if (comments) {
+        const commentsList = document.getElementById('commentsList');
+        commentsList.innerHTML = '';
+        Object.entries(comments).forEach(([key, comment], index) => {
+            const commentElement = document.createElement('div');
+            commentElement.classList.add('single-comment');
+            if (index >= 1) {
+                commentElement.classList.add('single-comment-hidden');
+            }
+            commentElement.innerHTML = `
+                <div class="part-img">
+                    <img src="assets/img/use.jpg" alt="">
+                </div>
+                <div class="part-text">
+                    <span class="commentor-name">${comment.name}</span>
+                    <p>${comment.message}</p>
+                    <button class="edit-btn" data-key="${key}">Edit</button>
+                    <button class="delete-btn" data-key="${key}">Delete</button>
+                </div>
+            `;
+            commentsList.appendChild(commentElement);
+
+            // Attach event listeners for edit and delete buttons
+            commentElement.querySelector('.delete-btn').addEventListener('click', () => {
+                deleteComment(movie_id, key); // pass movie_id and comment key
+            });
+
+            commentElement.querySelector('.edit-btn').addEventListener('click', () => {
+                // Get comment email to check authorization
+                const commentEmail = comment.email;
+                
+                if (commentEmail.trim() === localStorage.getItem("email")) {
+                    // Allow editing
+                    document.querySelector('#nameInput').value = comment.name;
+                    document.querySelector('#emailInput').value = commentEmail;
+                    document.querySelector('#messageInput').value = comment.message;
+                    document.querySelector('#emailInput').dataset.key = key;
+                    document.querySelector('#sendButton').textContent = 'Update Comment';
+                } else {
+                    // Do not allow editing
+                    alert('You are not authorized to edit this comment.');
+                }
+            });
+        });
+
+        // Show/hide additional comments logic
+        document.getElementById('readMoreLink').addEventListener('click', (event) => {
+            event.preventDefault();
+            document.querySelectorAll('.single-comment-hidden').forEach(comment => {
+                comment.classList.remove('single-comment-hidden');
+            });
+            document.getElementById('readMoreLink').style.display = 'none';
+        });
+
+    } else {
+        console.log('No comments found');
+    }
+});
+}
+
+document.getElementById('readMoreLink').addEventListener('click', (event) => {
+    event.preventDefault();
+    document.querySelectorAll('.single-comment-hidden').forEach(comment => {
+        comment.classList.remove('single-comment-hidden');
+    });
+    document.getElementById('readMoreLink').style.display = 'none';
+});
+
+document.querySelector('#commentForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = document.querySelector('#nameInput').value.trim();
+    const email = document.querySelector('#emailInput').value.trim();
+    const message = document.querySelector('#messageInput').value.trim();
+    const commentKey = document.querySelector('#emailInput').dataset.key;
+
+    if (name !== '' && email !== '' && message !== '') {
+        const comment = {
+            name: name,
+            email: email,
+            message: message,
+            date: new Date().toLocaleString()
+        };
+
+        if (commentKey) {
+            updateComment(movie_id, commentKey, comment);
+            document.querySelector('#sendButton').textContent = 'Send Us Now';
+            delete document.querySelector('#emailInput').dataset.key;
+        } else {
+            saveComment(movie_id, comment);
+        }
+
+        document.querySelector('#nameInput').value = '';
+        document.querySelector('#emailInput').value = '';
+        document.querySelector('#messageInput').value = '';
+
+        alert('Your comment has been saved successfully!');
+    } else {
+        alert('Please fill in all fields before submitting.');
+    }
+});
+</script>
+<script>
+lightGallery(document.querySelector(".gallery .gallery-container"));
+</script>

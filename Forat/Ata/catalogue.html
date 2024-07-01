@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar and Footer</title>
+    <link rel="stylesheet" href="catalogue.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    
+  
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="#">BrandName</a>
+        </div>
+        <div class="navbar-links" id="navbarLinks">
+            <a href="#">Home</a>
+            <a href="#">Catalogue</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="navbar-toggle" id="navbarToggle">
+            <span>&#9776;</span>
+        </div>
+    </nav> 
+     
+     <!-- Search Bar -->
+     <div class="search-block">
+      <form id="search-form">
+          <input type="text" id="search-input" placeholder="Search movies by title...">
+          <button type="submit" class="btn btn-secondary">Search</button>
+      </form>
+  </div>
+   
+
+    <div class="wrapper">
+        <div id="movieCardsContainer" class="row">
+             <!-- Movie cards here  -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+            <p>FlixHD.cc is a Free Movies streaming site with zero ads. We let you watch movies online without having to register or paying, with over 10000 movies and TV-Series. You can also Download full movies from FlixHD.cc and watch it later if you want.</p>
+            <p>&copy; 2024 BrandName. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+        const firebaseConfig = {
+    apiKey: "AIzaSyCiL9I5hokjct0j1WiLg5ZB0erVv094aiw",
+    authDomain: "cima-kids.firebaseapp.com",
+    databaseURL: "https://cima-kids-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "cima-kids",
+    storageBucket: "cima-kids.appspot.com",
+    messagingSenderId: "324919675126",
+    appId: "1:324919675126:web:af1fb7392f829b2f2104d7",
+    measurementId: "G-WZHXGFQLY0"
+  };
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase();
+        
+
+       document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('navbarToggle').addEventListener('click', function() {
+                var links = document.getElementById('navbarLinks');
+                links.classList.toggle('active');
+            });
+          });
+
+          const movieCardsContainer = document.getElementById('movieCardsContainer');
+
+const fetchMovies = async () => {
+    const dbRef = ref(db, 'movies');
+    const snapshot = await get(dbRef);
+    if (snapshot.exists()) {
+        const movies = snapshot.val();
+        return movies; // Return movies data
+    } else {
+        console.log("No data available");
+        return []; // Return an empty array if no data
+    }
+};
+
+const renderMovies = (movies) => {
+    movieCardsContainer.innerHTML = ''; // Clear existing movie cards
+
+    Object.values(movies).forEach(movie => {
+        const movieCard = document.createElement('div');
+        movieCard.className = 'card';
+        movieCard.innerHTML = `
+            <img class="movie-poster" src="${movie['image_url']}" alt="Movie Poster">
+            <div class="card-content">
+     <h2 class="movie-title">${movie.title}</h2>
+    <p class="movie-year">${movie.year}</p>
+    <p class="movie-rating">Rating: ${movie.rate}/10</p>
+       <div class="describe">
+       <p>${movie.description.split(' ').slice(0, 16).join(' ')}...</p>
+       <a href="../m.html?movie_id=${movie.movie_id}"><button class="btn btn-primary text-white">View Details</button></a>
+                </div>
+            </div> `;
+        movieCardsContainer.appendChild(movieCard);
+    });
+};
+
+fetchMovies().then(movies => renderMovies(movies));
+
+
+const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
+
+searchForm.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    const movies = await fetchMovies();
+
+   
+    const filteredMovies = Object.values(movies).filter(movie =>
+        movie.title.toLowerCase().includes(searchTerm)
+    );
+
+    
+    renderMovies(filteredMovies);
+});
+
+           
+    </script>
+</body>
+</html>
