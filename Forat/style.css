@@ -15,7 +15,7 @@ body {
   background-color: #4CAF50; /* لون أخضر */
   color: white;
  
-  padding: 15px 30px; /* تكبير الحواف */
+  padding: 12px 20px; /* تكبير الحواف */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -32,7 +32,7 @@ body {
 .delete-btn {
   background-color: #f44336; /* لون أحمر */
   color: white;
-  padding: 15px 30px; /* تكبير الحواف */
+  padding: 12px 20px; /* تكبير الحواف */
     border: none;
     border-radius: 5px;
     cursor: pointer;
