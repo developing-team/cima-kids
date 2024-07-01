@@ -16,7 +16,7 @@
     <!-- header section starts -->
     <header class="header">
       <a href="#" class="logo" id="logo-icon">
-        <img src="./image/boys.png" />
+        <img src="boys.png" />
       </a>
 
       <nav class="navbar">
@@ -48,10 +48,14 @@
   <!-- Filter Section -->
   <div class="filter-block">
       <form id="filter-form">
-          <label><input type="checkbox" id="adventure" name="genre" value="adventure"> Adventure</label>
+          <div class="up">
+            <label><input type="checkbox" id="adventure" name="genre" value="adventure"> Adventure</label>
           <label><input type="checkbox" id="family" name="genre" value="family"> Family</label>
           <label><input type="checkbox" id="comedy" name="genre" value="comedy"> Comedy</label>
-          <button type="button" class="btn btn-secondary" id="filter-button">Filter</button>
+          </div>
+          <div class="down">
+            <button type="button" class="btn btn-secondary" id="filter-button">Filter</button>
+          </div>
       </form>
   </div>
 
@@ -69,7 +73,7 @@
       <div class="box-container">
         <div class="box">
           <a href="#" class="logo" id="logo-icon">
-            <img src="./image/boys.png" />
+            <img src="boys.png" />
           </a>
           <p>
             Join us again for more fun-filled adventures and unforgettable
@@ -103,9 +107,9 @@
 
     <script src="app.js"></script>
 
-    <script>
+    <!-- <script>
       lightGallery(document.querySelector(".gallery .gallery-container"));
-    </script>
+    </script> -->
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";

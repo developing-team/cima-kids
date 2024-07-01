@@ -47,7 +47,7 @@ section {
 
 .btn {
   font-size: 1.7rem;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   display: inline-block;
   padding: 0.8rem 3rem;
   border-radius: 0.5rem;
@@ -402,10 +402,18 @@ btn {
   max-width: 600px;
 }
 
-#search-input {
-  flex: 1;
-  padding: 0.5rem;
+
+
+  #search-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--orange);
+    border-radius: 0.5rem;
+    height: 52.64px;
+
+
 }
+
 
 #search-form button {
   margin-left: 0.5rem;
@@ -462,3 +470,20 @@ btn {
       margin-top: 0.5rem; /* Reduce top margin for closer alignment */
   }
 }
+
+
+
+
+.down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
