@@ -64,7 +64,7 @@ button span {
 }
 
 :root {
-  --nBlue: #b0e1f8;
+  --orange: #f9ba60;
   --pink: #e9768f;
   --black: #1d1c1c;
   --white: #fff;
@@ -139,6 +139,7 @@ section {
   padding: 2rem 9%;
   background: var(--white);
   box-shadow: var(--box-shadow);
+  width: 100%;
 }
 
 .header .logo {
@@ -167,6 +168,7 @@ section {
   margin-left: 1.7rem;
   color: var(--black);
   cursor: pointer;
+
 }
 
 #menu-btn {
@@ -233,6 +235,8 @@ section {
 
 .footer {
   background: var(--pink);
+  width: 100%;
+
 }
 
 .footer .box-container {
@@ -241,9 +245,13 @@ section {
   gap: 1.5rem;
 }
 
+#logo_img {
+  width: auto;
+}
+
 .footer .box-container .box h3 {
   font-size: 2.2rem;
-  color: var(--nBlue);
+  color: var(--pink);
   padding: 1rem 0;
 }
 
@@ -357,7 +365,7 @@ section {
 
 .footer .box-container .box h3 {
   font-size: 2.2rem;
-  color: var(--nBlue);
+  color: var(--orange);
   padding: 1rem 0;
 }
 
