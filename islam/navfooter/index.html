@@ -224,7 +224,18 @@ function deleteComment(movieId, commentKey) {
         });
     }
 
-   
+   // Delete comments function
+function deleteComment(movieId, commentKey) {
+            const commentRef = ref(database, `movies/${movieId}/comments/${commentKey}`);
+            remove(commentRef).then(() => {
+                console.log('Comment deleted successfully');
+                retrieveComments(); // تحديث التعليقات بعد الحذف
+            }).catch((error) => {
+                console.error('Error deleting comment:', error);
+            });
+        }
+
+       
 // Retrieve comments function
 function retrieveComments() {
 const commentsRef = ref(database, `movies/${movie_id}/comments`);
