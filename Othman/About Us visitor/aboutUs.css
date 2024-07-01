@@ -3,6 +3,24 @@
   margin: 0;
 } */
 
+.btn {
+  font-size: 1.7rem;
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.8rem 3rem;
+  border-radius: 0.5rem;
+  border: 0.2rem solid var(--orange);
+  color: var(--orange);
+  background: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--orange);
+  color: var(--white);
+}
+
+
 .aboutUs {
   margin-top: 50px;
   padding-left: 100px;
@@ -11,6 +29,7 @@
   padding-bottom: 50px;
   /* border: 1px solid black; */
   /* background-color: aliceblue; */
+
 }
 
 #img_about {

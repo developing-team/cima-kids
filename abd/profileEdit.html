@@ -14,19 +14,21 @@
 
 <body>
   <header class="header">
-    <a href="#" class="logo" id="logo-icon">
+    <a href="../registerdUser/auth.html" class="logo" id="logo-icon">
       <img src="./image/boys.png" />
     </a>
 
     <nav class="navbar">
-      <a href="../Othman/Visitor Home/visitorHome.html">home</a>
+      <a href="../registerdUser/auth.html">home</a>
       <a href="../Othman/About Us/aboutUs.html">About</a>
       <a href="../Ata/catalogue.html">Catalogue</a>
       <a href="../Othman/Contact Us/contactUs.html">Contact</a>
     </nav>
 
     <div class="icons">
-      <div class="fas fa-user" id="login-btn"></div>
+      <a href="../abd/profile.html">
+        <div class="fas fa-user" id="login-btn"></div>
+      </a>
       <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
@@ -38,6 +40,10 @@
   <!-- header section starts -->
   <section class="profile-section">
     <div class="user-details">
+
+    </div>
+
+    <div class="user_info">
       <div class="user-avatar">
         <img src="./image/uicoon.png" alt="User Avatar">
       </div>
@@ -124,11 +130,11 @@
     </div>
 
     <div class="social-icons">
-      <h2>Social Media</h2>
+      <!-- <h2>Social Media</h2> -->
       <ul class="social-list">
-        <li><a href="#"><img src="./image/social.png" alt="Facebook"></a></li>
+        <!-- <li><a href="#"><img src="./image/social.png" alt="Facebook"></a></li>
         <li><a href="#"><img src="./image/instagram.png" alt="Twitter"></a></li>
-        <li><a href="#"><img src="./image/facebook.png" alt="Instagram"></a></li>
+        <li><a href="#"><img src="./image/facebook.png" alt="Instagram"></a></li> -->
         <!-- Add more social media icons as needed -->
       </ul>
       <div class="save_button">
@@ -140,7 +146,7 @@
   <section class="footer">
     <div class="box-container">
       <div class="box">
-        <a href="#" class="logo" id="logo-icon">
+        <a href="../registerdUser/auth.html" class="logo" id="logo-icon">
           <img src="./image/boys.png" />
         </a>
         <p>
@@ -163,12 +169,13 @@
         <h3>Extra Links</h3>
 
         <a href="../Ata/catalogue.html"> <i class="fas fa-caret-right"></i> Catalogue</a>
-        <a href="../islam/additionalFeilds/index.html"> <i class="fas fa-caret-right"></i> FAQs</a>
+        <a href="../islam/additionalFeilds/index.html" target="_blank"> <i class="fas fa-caret-right"></i> FAQs</a>
       </div>
+    </div>
 
-      <div class="credit">
-        &copy; copyright @ 2024 by <span>cima Kids</span>
-      </div>
+    <div class="credit">
+      &copy; copyright @ 2024 by <span>cima Kids</span>
+    </div>
   </section>
   <!-- footer section ends -->
 
@@ -211,9 +218,10 @@
     // function refresh(e) {
     //     e.preventDefault();
 
+    const data = JSON.parse(localStorage.getItem("userData"));
+    console.log(data.uid);
 
-
-    get(child(db_ref, "users/YMbtqu3xKRZUSDXbIxGMbgOAaSn1"))
+    get(child(db_ref, "users/" + data.uid))
       .then((stored_data) => {
         document.getElementById("user_name").textContent = stored_data.val().username;
         document.getElementById("user_email").textContent = stored_data.val().email;

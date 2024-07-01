@@ -9,6 +9,11 @@
   --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
 }
 
+
+.wrapper .card:hover img {
+  filter: brightness(0.5);
+}
+
 * {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -47,7 +52,7 @@ section {
 
 .btn {
   font-size: 1.7rem;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   display: inline-block;
   padding: 0.8rem 3rem;
   border-radius: 0.5rem;
@@ -265,6 +270,7 @@ section {
   html {
     font-size: 50%;
   }
+
   .home .content h3 {
     font-size: 3.5rem;
   }
@@ -276,20 +282,22 @@ section {
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    color: rgb(0, 0, 0);
-    font-family: "microsoft yahei", arial, -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, cantarell, "helvetica neue", ubuntu, sans-serif;
-    background: #ffffff;
-    margin: 0; /* Ensure no default margin */
-    overflow-x: hidden; /* Hide horizontal overflow */
+  color: rgb(0, 0, 0);
+  font-family: "microsoft yahei", arial, -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, cantarell, "helvetica neue", ubuntu, sans-serif;
+  background: #ffffff;
+  margin: 0;
+  /* Ensure no default margin */
+  overflow-x: hidden;
+  /* Hide horizontal overflow */
 }
 
 a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 btn {
@@ -333,17 +341,18 @@ btn {
   height: 22.5rem;
   overflow: hidden;
   transition: 0.5s ease all;
-  border-radius: 0.9375rem; /* 15px */
+  border-radius: 0.9375rem;
+  /* 15px */
 }
 
 .wrapper .card img {
   width: 100%;
-  height: auto; 
+  height: auto;
   object-fit: cover;
   border-radius: 0.9375rem;
   transition: 0.5s ease all;
-  margin: 0; 
-  padding: 0; 
+  margin: 0;
+  padding: 0;
 }
 
 .wrapper .card .card-content {
@@ -352,15 +361,13 @@ btn {
   left: 0;
   width: 100%;
   padding: 3.125rem 0.625rem 0.4375rem;
-  background-image: linear-gradient(
-      180deg,
+  background-image: linear-gradient(180deg,
       rgba(51, 55, 69, 0),
-      rgba(16, 21, 40, 0.95)
-  );
+      rgba(16, 21, 40, 0.95));
   transition: 0.5s ease all;
   opacity: 0;
   color: white;
-  border-radius: 0.9375rem; 
+  border-radius: 0.9375rem;
 }
 
 .wrapper .card:hover .card-content {
@@ -402,10 +409,18 @@ btn {
   max-width: 600px;
 }
 
+
+
 #search-input {
   flex: 1;
   padding: 0.5rem;
+  border: 1px solid var(--orange);
+  border-radius: 0.5rem;
+  height: 52.64px;
+
+
 }
+
 
 #search-form button {
   margin-left: 0.5rem;
@@ -414,12 +429,13 @@ btn {
 
 @media (max-width: 768px) {
   #search-form {
-      flex-direction: column;
+    flex-direction: column;
   }
 
-  #search-input, #search-form button {
-      width: 100%;
-      margin: 0.5rem 0;
+  #search-input,
+  #search-form button {
+    width: 100%;
+    margin: 0.5rem 0;
   }
 }
 
@@ -444,21 +460,40 @@ btn {
 
 #filter-button {
   /* margin-bottom: 0.5rem;  */
-  padding: 0.5rem 1rem; /* Adjust padding for smaller size */
+  padding: 0.5rem 1rem;
+  /* Adjust padding for smaller size */
 }
 
 @media (max-width: 768px) {
   #filter-form {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   #filter-form label {
-      width: 100%;
-      text-align: center;
+    width: 100%;
+    text-align: center;
   }
 
   #filter-button {
-      width: auto; /* Allow button to shrink to content */
-      margin-top: 0.5rem; /* Reduce top margin for closer alignment */
+    width: auto;
+    /* Allow button to shrink to content */
+    margin-top: 0.5rem;
+    /* Reduce top margin for closer alignment */
   }
+}
+
+
+
+
+.down {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -14,19 +14,21 @@
 <body>
   <!-- header section starts -->
   <header class="header">
-    <a href="#" class="logo" id="logo-icon">
-      <img src="./image/boys.png" />
+    <a href="../registerdUser/auth.html" class="logo" id="logo-icon">
+      <img src="boys.png" />
     </a>
 
     <nav class="navbar">
-      <a href="../Othman/Visitor Home/visitorHome.html">home</a>
-      <a href="../Othman/About Us/aboutUs.html">About</a>
-      <a href="../Ata/catalogue.html">Catalogue</a>
-      <a href="../Othman/Contact Us/contactUs.html">Contact</a>
+      <a href="../registerdUser/auth.html">home</a>
+      <a href="../Othman/About Us/aboutUs.html">about</a>
+      <a href="../Ata/catalogue.html">catalog</a>
+      <a href="../Othman/Contact Us/contactUs.html">contact</a>
     </nav>
 
     <div class="icons">
-      <div class="fas fa-user" id="login-btn"></div>
+      <a href="../abd/profile.html">
+        <div class="fas fa-user" id="login-btn"></div>
+      </a>
       <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
@@ -47,10 +49,14 @@
   <!-- Filter Section -->
   <div class="filter-block">
     <form id="filter-form">
-      <label><input type="checkbox" id="adventure" name="genre" value="adventure"> Adventure</label>
-      <label><input type="checkbox" id="family" name="genre" value="family"> Family</label>
-      <label><input type="checkbox" id="comedy" name="genre" value="comedy"> Comedy</label>
-      <button type="button" class="btn btn-secondary" id="filter-button">Filter</button>
+      <div class="up">
+        <label><input type="checkbox" id="adventure" name="genre" value="adventure"> Adventure</label>
+        <label><input type="checkbox" id="family" name="genre" value="family"> Family</label>
+        <label><input type="checkbox" id="comedy" name="genre" value="comedy"> Comedy</label>
+      </div>
+      <div class="down">
+        <button type="button" class="btn btn-secondary" id="filter-button">Filter</button>
+      </div>
     </form>
   </div>
 
@@ -67,8 +73,8 @@
   <section class="footer">
     <div class="box-container">
       <div class="box">
-        <a href="#" class="logo" id="logo-icon">
-          <img src="./image/boys.png" />
+        <a href="../registerdUser/auth.html" class="logo" id="logo-icon">
+          <img src="boys.png" />
         </a>
         <p>
           Join us again for more fun-filled adventures and unforgettable
@@ -81,29 +87,30 @@
       </div>
 
       <div class="box">
-        <h3>Category</h3>
-        <a href="../Othman/About Us/aboutUs.html"> <i class="fas fa-caret-right"></i> About Us</a>
-        <a href="../Othman/Contact Us/contactUs.html"> <i class="fas fa-caret-right"></i> Contact Us</a>
+        <h3>category</h3>
+        <a href="../Othman/About Us/aboutUs.html"> <i class="fas fa-caret-right"></i> about us</a>
+        <a href="../Othman/Contact Us/contactUs.html"> <i class="fas fa-caret-right"></i> contact us</a>
       </div>
 
       <div class="box">
-        <h3>Extra Links</h3>
+        <h3>extra links</h3>
 
-        <a href="../Ata/catalogue.html"> <i class="fas fa-caret-right"></i> Catalogue</a>
-        <a href="../islam/additionalFeilds/index.html"> <i class="fas fa-caret-right"></i> FAQs</a>
+        <a href="../Ata/catalogue.html"> <i class="fas fa-caret-right"></i> catalog</a>
+        <a href="../islam/additionalFeilds/index.html" target="_blank"> <i class="fas fa-caret-right"></i> FAQs</a>
       </div>
+    </div>
 
-      <div class="credit">
-        &copy; copyright @ 2024 by <span>cima Kids</span>
-      </div>
+    <div class="credit">
+      &copy; copyright @ 2024 by <span>cima Kids</span>
+    </div>
   </section>
   <!-- footer section ends -->
 
   <script src="app.js"></script>
 
-  <script>
-    lightGallery(document.querySelector(".gallery .gallery-container"));
-  </script>
+  <!-- <script>
+      lightGallery(document.querySelector(".gallery .gallery-container"));
+    </script> -->
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -161,7 +168,7 @@
           <p class="movie-rating">Rating: ${movie.rate}/10</p>
           <div class="describe">
              <p>${movie.description.split(' ').slice(0, 16).join(' ')}...</p>
-              <button class="btn btn-primary text-white">View Details</button>
+              <a href="../Forat/m.html?movie_id=${movie.movie_id}"><button class="btn btn-primary text-white">View Details</button></a>
           </div>
       </div> `;
         movieCardsContainer.appendChild(movieCard);
