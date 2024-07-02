@@ -236,7 +236,28 @@
     // }
 
 
-    // document.getElementById("re").addEventListener("click", refresh);
+    function refresh() {
+      set(ref(db, "users/VXIouenNgoYrNG2fgT68DGAAUwm2"), {
+        email: document.getElementById("email").value,
+        gender: document.getElementById("gender").value,
+        username: document.getElementById("name").value
+      })
+        .then(get(child(db_ref, "users/VXIouenNgoYrNG2fgT68DGAAUwm2"))
+          .then((stored_data) => {
+            document.getElementById("user_name").textContent = stored_data.val().username;
+            document.getElementById("user_email").textContent = stored_data.val().email;
+            document.getElementById("name").value = stored_data.val().username;
+            document.getElementById("email").value = stored_data.val().email;
+            document.getElementById("gender").value = stored_data.val().gender;
+            document.getElementById("country").value = "Jordan";
+
+          }))
+
+        .then(() => { alert("Information Updated ??") })
+        .catch((error) => { error })
+    }
+
+    document.getElementById("save").addEventListener("click", refresh);
 
 
   </script>
