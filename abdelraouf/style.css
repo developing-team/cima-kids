@@ -855,6 +855,7 @@ section {
     position: absolute;
     top: 110%;
     right: -110%;
+    text-align: center;
     width: 30rem;
     box-shadow: var(--box-shadow);
     border-radius: 0.5rem;

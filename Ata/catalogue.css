@@ -244,8 +244,9 @@ section {
 
   .header .navbar {
     position: absolute;
-    top: 110%;
-    right: -110%;
+    top: 14%;
+    right: 2%;
+    display: none;
     width: 30rem;
     box-shadow: var(--box-shadow);
     border-radius: 0.5rem;
@@ -254,6 +255,7 @@ section {
 
   .header .navbar.active {
     right: 2rem;
+    display: inline-block;
     transition: 0.4s linear;
   }
 

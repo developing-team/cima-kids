@@ -161,25 +161,25 @@ function renderPagination() {
 
 fetchMovies();
 
-// login form
-let loginForm = document.querySelector(".login-form");
+// // login form
+// let loginForm = document.querySelector(".login-form");
 
-document.querySelector("#login-btn").onclick = () => {
-  loginForm.classList.toggle("active");
-  navbar.classList.remove("active");
-};
+// document.querySelector("#login-btn").onclick = () => {
+//   loginForm.classList.toggle("active");
+//   navbar.classList.remove("active");
+// };
 
-let navbar = document.querySelector(".navbar");
+// let navbar = document.querySelector(".navbar");
 
-document.querySelector("#menu-btn").onclick = () => {
-  navbar.classList.toggle("active");
-  loginForm.classList.remove("active");
-};
+// document.querySelector("#menu-btn").onclick = () => {
+//   navbar.classList.toggle("active");
+//   loginForm.classList.remove("active");
+// };
 
-window.onscroll = () => {
-  loginForm.classList.remove("active");
-  navbar.classList.remove("active");
-};
+// window.onscroll = () => {
+//   loginForm.classList.remove("active");
+//   navbar.classList.remove("active");
+// };
 
 // hero
 var options = {
@@ -202,3 +202,24 @@ flkty.on("scroll", function () {
     image.style.backgroundPosition = x + "px";
   });
 });
+
+
+
+let loginFormm = document.querySelector(".login-form");
+
+document.querySelector("#login-btn").onclick = () => {
+  loginFormm.classList.toggle("active");
+  navbarr.classList.remove("active");
+};
+
+let navbarr = document.querySelector(".navbar");
+
+document.querySelector("#menu-btn").onclick = () => {
+  navbarr.classList.toggle("active");
+  loginFormm.classList.remove("active");
+};
+
+window.onscroll = () => {
+  loginFormm.classList.remove("active");
+  navbarr.classList.remove("active");
+};

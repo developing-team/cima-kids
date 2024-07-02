@@ -431,8 +431,10 @@ section {
 
   .header .navbar {
     position: absolute;
-    top: 110%;
-    right: -110%;
+    top: 13%;
+    right: 3%;
+    text-align: center;
+    display: none;
     width: 30rem;
     box-shadow: var(--box-shadow);
     border-radius: 0.5rem;
@@ -442,6 +444,7 @@ section {
   .header .navbar.active {
     right: 2rem;
     transition: 0.4s linear;
+    display: inline-block;
   }
 
   .header .navbar a {

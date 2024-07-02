@@ -17,6 +17,9 @@
   color: var(--white);
 }
 
+#menu-btn {
+  display: none;
+}
 
 :root {
   --orange: #f9ba60;
@@ -110,6 +113,10 @@ section {
 }
 
 #menu-btn {
+  display: none;
+}
+
+.navbar {
   display: none;
 }
 
@@ -856,22 +863,26 @@ section {
 
   .header .navbar {
     position: absolute;
-    top: 110%;
-    right: -110%;
+    top: 13%;
+    right: 3%;
     width: 30rem;
     box-shadow: var(--box-shadow);
     border-radius: 0.5rem;
     background: var(--white);
+    /* -------------------------------- */
+    display: none;
   }
 
   .header .navbar.active {
     right: 2rem;
     transition: 0.4s linear;
+    display: flex;
+    justify-content: center;
   }
 
   .header .navbar a {
     font-size: 2rem;
-    margin: 2rem 2.5rem;
+    margin: 2rem 5.5rem;
     display: block;
   }
 

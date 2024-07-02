@@ -32,10 +32,10 @@
       <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <form action="" class="login-form">
+    <!-- <form action="" class="login-form">
       <h3>login now</h3>
       <input type="submit" value="login now" class="btn" />
-    </form>
+    </form> -->
   </header>
   <!-- header section starts -->
   <section class="profile-section">
@@ -80,7 +80,7 @@
         </div>
       </form>
       <div class="watched">
-        <h4>Watched</h4>
+        <h4>Suggested</h4>
         <div class="movies_card">
           <div class="movie">
             <img src="https://i.pinimg.com/564x/20/65/b5/2065b50f64bbce9d837072e2f46cd4a8.jpg" alt="">
@@ -179,12 +179,12 @@
   </section>
   <!-- footer section ends -->
 
-  <script src="app.js"></script>
+  <!-- <script src="app.js"></script> -->
 
-  <script>
+  <!-- <script>
     lightGallery(document.querySelector(".gallery .gallery-container"));
-  </script>
-
+  </script> -->
+  <script src="app.js"></script>
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -219,7 +219,7 @@
     //     e.preventDefault();
 
     const data = JSON.parse(localStorage.getItem("userData"));
-    console.log(data.uid);
+    // console.log(data.uid);
 
     get(child(db_ref, "users/" + data.uid))
       .then((stored_data) => {
@@ -229,20 +229,21 @@
         document.getElementById("email").value = stored_data.val().email;
         document.getElementById("gender").value = stored_data.val().gender;
         document.getElementById("country").value = "Jordan";
-
       })
-      .then(() => { })
+      .then()
       .catch((error) => { error })
     // }
 
 
+
+
     function refresh() {
-      set(ref(db, "users/VXIouenNgoYrNG2fgT68DGAAUwm2"), {
+      set(ref(db, "users/" + data.uid), {
         email: document.getElementById("email").value,
         gender: document.getElementById("gender").value,
         username: document.getElementById("name").value
       })
-        .then(get(child(db_ref, "users/VXIouenNgoYrNG2fgT68DGAAUwm2"))
+        .then(get(child(db_ref, "users/" + data.uid))
           .then((stored_data) => {
             document.getElementById("user_name").textContent = stored_data.val().username;
             document.getElementById("user_email").textContent = stored_data.val().email;
@@ -261,7 +262,7 @@
 
 
   </script>
-  <Script src="app.js"></Script>
+  <!-- <Script src="app.js"></Script> -->
 </body>
 
 </html>

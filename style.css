@@ -36,6 +36,8 @@ html {
   scroll-behavior: smooth;
 }
 
+
+
 section {
   padding: 3rem 7%;
 }
@@ -864,8 +866,9 @@ section {
 
   .header .navbar {
     position: absolute;
-    top: 110%;
-    right: -110%;
+    top: 106%;
+    right: 2%;
+    display: none;
     width: 30rem;
     box-shadow: var(--box-shadow);
     border-radius: 0.5rem;
@@ -875,6 +878,7 @@ section {
   .header .navbar.active {
     right: 2rem;
     transition: 0.4s linear;
+    display: inline;
   }
 
   .header .navbar a {
@@ -953,6 +957,10 @@ section {
 @media (max-width: 768px) {
   .pagination {
     flex-wrap: wrap;
+  }
+
+  #menu-btn {
+    display: block;
   }
 
   .pagination button {
@@ -1164,5 +1172,3 @@ section {
     width: calc(50% - 10px);
   }
 }
-
-

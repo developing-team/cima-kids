@@ -248,11 +248,13 @@ section {
   .header .navbar.active {
     right: 2rem;
     transition: 0.4s linear;
+    display: flex;
+    justify-content: center;
   }
 
   .header .navbar a {
     font-size: 2rem;
-    margin: 2rem 2.5rem;
+    margin: 2rem 5.5rem;
     display: block;
   }
 
@@ -265,6 +267,7 @@ section {
   html {
     font-size: 50%;
   }
+
   .home .content h3 {
     font-size: 3.5rem;
   }
