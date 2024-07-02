@@ -105,6 +105,7 @@ signInForm.addEventListener("submit", async (e) => {
     localStorage.setItem("userData", JSON.stringify(userData));
 
     signInMessage.textContent = "Sign-in successful!";
+    signInMessage.style.color = "green";
     setTimeout(() => {
       window.location.href = "../abdelraouf/auth.html";
     }, 1000);
