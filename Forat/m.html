@@ -237,114 +237,187 @@
     }
 
 
-    // Retrieve comments function
-    function retrieveComments() {
-        const commentsRef = ref(database, `movies/${movie_id}/comments`);
-        onValue(commentsRef, (snapshot) => {
-            const comments = snapshot.val();
-            if (comments) {
-                const commentsList = document.getElementById('commentsList');
-                commentsList.innerHTML = '';
-                Object.entries(comments).forEach(([key, comment], index) => {
-                    const commentElement = document.createElement('div');
-                    commentElement.classList.add('single-comment');
-                    if (index >= 1) {
-                        commentElement.classList.add('single-comment-hidden');
-                    }
-                    commentElement.innerHTML = `
-                <div class="part-img">
-                    <img src="assets/img/u.jpg" alt="">
-                </div>
-                <div class="part-text">
-                    <span class="commentor-name">${comment.name}</span>
-                    <p>${comment.message}</p>
-                    <button class="edit-btn" data-key="${key}">Edit</button>
-                    <button class="delete-btn" data-key="${key}">Delete</button>
-                </div>
-            `;
-                    commentsList.appendChild(commentElement);
+//     // Retrieve comments function
+//     function retrieveComments() {
+//         const commentsRef = ref(database, `movies/${movie_id}/comments`);
+//         onValue(commentsRef, (snapshot) => {
+//             const comments = snapshot.val();
+//             if (comments) {
+//                 const commentsList = document.getElementById('commentsList');
+//                 commentsList.innerHTML = '';
+//                 Object.entries(comments).forEach(([key, comment], index) => {
+//                     const commentElement = document.createElement('div');
+//                     commentElement.classList.add('single-comment');
+                   
+//                     commentElement.innerHTML = `
+//                 <div class="part-img">
+//                     <img src="assets/img/u.jpg" alt="">
+//                 </div>
+//                 <div class="part-text">
+//                     <span class="commentor-name">${comment.name}</span>
+//                     <p>${comment.message}</p>
+//                     <button class="edit-btn" data-key="${key}">Edit</button>
+//                     <button class="delete-btn" data-key="${key}">Delete</button>
+//                 </div>
+//             `;
+//                     commentsList.appendChild(commentElement);
 
-                    // Attach event listeners for edit and delete buttons
-                    // commentElement.querySelector('.delete-btn').addEventListener('click', () => {
-                    //     deleteComment(movie_id, key); // pass movie_id and comment key
-                    // });
-                    const userData = JSON.parse(localStorage.getItem("userData"));
-                    console.log(userData.email);
+//                     // Attach event listeners for edit and delete buttons
+//                     // commentElement.querySelector('.delete-btn').addEventListener('click', () => {
+//                     //     deleteComment(movie_id, key); // pass movie_id and comment key
+//                     // });
+//                     const userData = JSON.parse(localStorage.getItem("userData"));
+//                     console.log(userData.email);
 
+//                     commentElement.querySelector('.edit-btn').addEventListener('click', () => {
+//                         // Get comment email to check authorization
+//                         const commentEmail = comment.email;
+
+//                         if (commentEmail.trim() === userData.email) {
+//                             // Allow editing
+//                             document.querySelector('#nameInput').value = comment.name;
+//                             document.querySelector('#emailInput').value = commentEmail;
+//                             document.querySelector('#messageInput').value = comment.message;
+//                             document.querySelector('#emailInput').dataset.key = key;
+//                             document.querySelector('#sendButton').textContent = 'Update Comment';
+
+//                         } else {
+//                             // Do not allow editing
+//                             function showCustomAlert() {
+//             Swal.fire({
+//                 title: 'You cannot edit!!',
+//                 text: 'You are not authorized to edit this comment.!',
+//                 icon: 'info', // You can change this to 'success', 'error', 'warning', etc.
+//                 confirmButtonText: 'OK',
+//                 confirmButtonColor: '#e9768f', // Customize button color
+//                 background: '#fff', // Customize background color
+//                 customClass: {
+//                     popup: 'custom-popup',
+//                     title: 'custom-title',
+//                     confirmButton: 'custom-confirm-button'
+//                 }
+//             });
+//         }
+
+//                            showCustomAlert(); // alert('You are not authorized to edit this comment.');
+//                         }
+//                     });
+//                     commentElement.querySelector('.delete-btn').addEventListener('click', () => {
+//                         const commentEmail = comment.email;
+
+// if (commentEmail.trim() === userData.email) {
+  
+//      deleteComment(movie_id, key); // pass movie_id and comment key
+
+// } else  {
+//                             // Do not allow editing
+//                             function showCustomAlert() {
+//             Swal.fire({
+//                 title: 'You cannot Delete!!',
+//                 text: 'You are not authorized to delete this comment.!',
+//                 icon: 'info', // You can change this to 'success', 'error', 'warning', etc.
+//                 confirmButtonText: 'OK',
+//                 confirmButtonColor: '#e9768f', // Customize button color
+//                 background: '#fff', // Customize background color
+//                 customClass: {
+//                     popup: 'custom-popup',
+//                     title: 'custom-title',
+//                     confirmButton: 'custom-confirm-button'
+//                 }
+                
+//             });
+            
+//         }
+//                            showCustomAlert(); // alert('You are not authorized to edit this comment.');
+//                         }
+//                         // deleteComment(movie_id, key); // pass movie_id and comment key
+//                     });
+//                 });
+//                 // Show/hide additional comments logic
+//                 document.getElementById('readMoreLink').addEventListener('click', (event) => {
+//                     event.preventDefault();
+//                     document.querySelectorAll('.single-comment-hidden').forEach(comment => {
+//                         comment.classList.remove('single-comment-hidden');
+//                     });
+//                     document.getElementById('readMoreLink').style.display = 'none';
+//                 });
+
+//             } else {
+//                 console.log('No comments found');
+//             }
+//         });
+//     }
+
+
+function retrieveComments() {
+    const commentsRef = ref(database, `movies/${movie_id}/comments`);
+    onValue(commentsRef, (snapshot) => {
+        const comments = snapshot.val();
+        if (comments) {
+            const commentsList = document.getElementById('commentsList');
+            commentsList.innerHTML = '';
+
+            // Retrieve logged-in user's email
+            const userData = JSON.parse(localStorage.getItem("userData"));
+            const userEmail = userData ? userData.email.trim() : '';
+
+            Object.entries(comments).forEach(([key, comment], index) => {
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('single-comment');
+
+                let buttonsHTML = '';
+                if (comment.email.trim() === userEmail) {
+                    buttonsHTML = `
+                        <button class="edit-btn" data-key="${key}">Edit</button>
+                        <button class="delete-btn" data-key="${key}">Delete</button>
+                    `;
+                }
+
+                commentElement.innerHTML = `
+                    <div class="part-img">
+                        <img src="assets/img/u.jpg" alt="">
+                    </div>
+                    <div class="part-text">
+                        <span class="commentor-name">${comment.name}</span>
+                        <p>${comment.message}</p>
+                        ${buttonsHTML}
+                    </div>
+                `;
+
+                commentsList.appendChild(commentElement);
+
+                // Attach event listeners for edit and delete buttons if they exist
+                if (buttonsHTML) {
                     commentElement.querySelector('.edit-btn').addEventListener('click', () => {
-                        // Get comment email to check authorization
-                        const commentEmail = comment.email;
-
-                        if (commentEmail.trim() === userData.email) {
-                            // Allow editing
-                            document.querySelector('#nameInput').value = comment.name;
-                            document.querySelector('#emailInput').value = commentEmail;
-                            document.querySelector('#messageInput').value = comment.message;
-                            document.querySelector('#emailInput').dataset.key = key;
-                            document.querySelector('#sendButton').textContent = 'Update Comment';
-
-                        } else {
-                            // Do not allow editing
-                            function showCustomAlert() {
-            Swal.fire({
-                title: 'You cannot edit!!',
-                text: 'You are not authorized to edit this comment.!',
-                icon: 'info', // You can change this to 'success', 'error', 'warning', etc.
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#e9768f', // Customize button color
-                background: '#fff', // Customize background color
-                customClass: {
-                    popup: 'custom-popup',
-                    title: 'custom-title',
-                    confirmButton: 'custom-confirm-button'
-                }
-            });
-        }
-                           showCustomAlert(); // alert('You are not authorized to edit this comment.');
-                        }
+                        // Populate the form with the comment details for editing
+                        document.querySelector('#nameInput').value = comment.name;
+                        document.querySelector('#emailInput').value = comment.email;
+                        document.querySelector('#messageInput').value = comment.message;
+                        document.querySelector('#emailInput').dataset.key = key;
+                        document.querySelector('#sendButton').textContent = 'Update Comment';
                     });
+
                     commentElement.querySelector('.delete-btn').addEventListener('click', () => {
-                        const commentEmail = comment.email;
-
-if (commentEmail.trim() === userData.email) {
-     deleteComment(movie_id, key); // pass movie_id and comment key
-
-} else  {
-                            // Do not allow editing
-                            function showCustomAlert() {
-            Swal.fire({
-                title: 'You cannot Delete!!',
-                text: 'You are not authorized to delete this comment.!',
-                icon: 'info', // You can change this to 'success', 'error', 'warning', etc.
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#e9768f', // Customize button color
-                background: '#fff', // Customize background color
-                customClass: {
-                    popup: 'custom-popup',
-                    title: 'custom-title',
-                    confirmButton: 'custom-confirm-button'
+                        deleteComment(movie_id, key);
+                    });
                 }
             });
-        }
-                           showCustomAlert(); // alert('You are not authorized to edit this comment.');
-                        }
-                        // deleteComment(movie_id, key); // pass movie_id and comment key
-                    });
-                });
-                // Show/hide additional comments logic
-                document.getElementById('readMoreLink').addEventListener('click', (event) => {
-                    event.preventDefault();
-                    document.querySelectorAll('.single-comment-hidden').forEach(comment => {
-                        comment.classList.remove('single-comment-hidden');
-                    });
-                    document.getElementById('readMoreLink').style.display = 'none';
-                });
 
-            } else {
-                console.log('No comments found');
-            }
-        });
-    }
+            // Show/hide additional comments logic
+            document.getElementById('readMoreLink').addEventListener('click', (event) => {
+                event.preventDefault();
+                document.querySelectorAll('.single-comment-hidden').forEach(comment => {
+                    comment.classList.remove('single-comment-hidden');
+                });
+                document.getElementById('readMoreLink').style.display = 'none';
+            });
+
+        } else {
+            console.log('No comments found');
+        }
+    });
+}
+
     console.log(" ");
     document.getElementById('readMoreLink').addEventListener('click', (event) => {
         event.preventDefault();
@@ -370,6 +443,7 @@ if (commentEmail.trim() === userData.email) {
                 date: new Date().toLocaleString()
             };
 
+            console.log(comment.date);
             if (commentKey) {
                 updateComment(movie_id, commentKey, comment);
                 document.querySelector('#sendButton').textContent = 'Send Us Now';
