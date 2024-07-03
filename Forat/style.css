@@ -14,7 +14,7 @@ body {
 
 /* زر التعديل */
 .edit-btn {
-  background-color: #4CAF50;
+  background-color: #e9768f;
   /* لون أخضر */
   color: white;
 
@@ -30,14 +30,11 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.edit-btn:hover {
-  background-color: #45a049;
-  /* لون أخضر غامق عند التحويم */
-}
+
 
 /* زر الحذف */
 .delete-btn {
-  background-color: #f44336;
+  background-color: #f9ba60;
   /* لون أحمر */
   color: white;
   padding: 12px 20px;
@@ -52,10 +49,6 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.delete-btn:hover {
-  background-color: #e53935;
-  /* لون أحمر غامق عند التحويم */
-}
 
 /* تخصيصات إضافية للنص داخل الأزرار */
 button span {
@@ -431,10 +424,8 @@ section {
 
   .header .navbar {
     position: absolute;
-    top: 13%;
-    right: 3%;
-    text-align: center;
-    display: none;
+    top: 110%;
+    right: -110%;
     width: 30rem;
     box-shadow: var(--box-shadow);
     border-radius: 0.5rem;
@@ -444,7 +435,6 @@ section {
   .header .navbar.active {
     right: 2rem;
     transition: 0.4s linear;
-    display: inline-block;
   }
 
   .header .navbar a {
@@ -569,6 +559,10 @@ h3 {
   justify-content: flex-start;
   /* محاذاة الدوائر لليسار */
   width: 80%;
+}
+.delete-btn:hover {
+  background-color: #e53935;
+  /* لون أحمر غامق عند التحويم */
 }
 
 .circle {

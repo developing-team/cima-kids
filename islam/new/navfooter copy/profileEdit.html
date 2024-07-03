@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cimakids Website</title>
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="profile.css" />
+</head>
+
+<body>
+  <header class="header">
+    <a href="#" class="logo" id="logo-icon">
+      <img src="./image/boys.png" />
+    </a>
+
+    <nav class="navbar">
+      <a href="#home">home</a>
+      <a href="#about">about</a>
+      <a href="#catalog">catalog</a>
+      <a href="#contact">contact</a>
+    </nav>
+
+    <div class="icons">
+      <div class="fas fa-user" id="login-btn"></div>
+      <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+
+    <form action="" class="login-form">
+      <h3>login now</h3>
+      <input type="submit" value="login now" class="btn" />
+    </form>
+  </header>
+  <!-- header section starts -->
+  <section class="profile-section">
+    <div class="user-details">
+      <div class="user-avatar">
+        <img src="./image/uicoon.png" alt="User Avatar">
+      </div>
+      <div class="user-info">
+        <h1 class="user-name" id="user_name"></h1>
+        <p class="user-email" id="user_email"></p>
+      </div>
+      <div class="edit-button">
+        <button type="submit" id="save">Save</button>
+      </div>
+    </div>
+
+    <div class="user-information">
+      <!-- <h2>Information</h2> -->
+      <form id="information-form">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <input type="text" id="gender" name="gender">
+        </div>
+        <div class="form-group">
+          <label for="country">Country:</label>
+          <input type="text" id="country" name="country">
+        </div>
+        <div class="save_button">
+          <a href="profile.html"><button type="button" id="cancel">Cancel</button></a>
+        </div>
+      </form>
+      <div class="watched">
+        <h4>Watched</h4>
+        <div class="movies_card">
+          <div class="movie">
+            <img src="https://i.pinimg.com/564x/20/65/b5/2065b50f64bbce9d837072e2f46cd4a8.jpg" alt="">
+            <div>
+              <h6>The Lego Movie</h6>
+              <p>2014</p>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="https://i.pinimg.com/236x/91/7d/c7/917dc76150f5ece7073521522ba54cd8.jpg" alt="">
+            <div>
+              <h6>Inside Out</h6>
+              <p>2015</p>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="https://i.pinimg.com/236x/b0/d7/da/b0d7daecd9ca82382297413a85735995.jpg" alt="">
+            <div>
+              <h6>Wreck-It Ralph</h6>
+              <p>2012</p>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="https://i.pinimg.com/564x/99/6e/94/996e940def54448e075e2405a77e3011.jpg" alt="">
+            <div>
+              <h6>Monsters University</h6>
+              <p>2013</p>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="https://i.pinimg.com/564x/da/6c/b2/da6cb2621d1b64217a710562e5897a18.jpg" alt="">
+            <div>
+              <h6>Cloudy</h6>
+              <p>2013</p>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="https://i.pinimg.com/564x/f0/20/79/f020796b3db1385b63cca419c075b733.jpg" alt="">
+            <div>
+              <h6>Penguins</h6>
+              <p>2014</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="social-icons">
+      <h2>Social Media</h2>
+      <ul class="social-list">
+        <li><a href="#"><img src="./image/social.png" alt="Facebook"></a></li>
+        <li><a href="#"><img src="./image/instagram.png" alt="Twitter"></a></li>
+        <li><a href="#"><img src="./image/facebook.png" alt="Instagram"></a></li>
+        <!-- Add more social media icons as needed -->
+      </ul>
+      <div class="save_button">
+        <a href="profile.html"><button type="button" id="out">Log out</button></a>
+      </div>
+    </div>
+  </section>
+  <!--footer section starts-->
+  <section class="footer">
+    <div class="box-container">
+      <div class="box">
+        <a href="#" class="logo" id="logo-icon">
+          <img src="./image/boys.png" />
+        </a>
+        <p>
+          Join us again for more fun-filled adventures and unforgettable
+          stories!
+        </p>
+      </div>
+
+      <div class="box">
+        <h3 style="color: #e9768f">quick links</h3>
+      </div>
+
+      <div class="box">
+        <h3>category</h3>
+        <a href="#"> <i class="fas fa-caret-right"></i> about us</a>
+        <a href="#"> <i class="fas fa-caret-right"></i> contact us</a>
+      </div>
+
+      <div class="box">
+        <h3>extra links</h3>
+
+        <a href="#"> <i class="fas fa-caret-right"></i> catalog</a>
+        <a href="#"> <i class="fas fa-caret-right"></i> FAQs</a>
+      </div>
+    </div>
+
+    <div class="credit">
+      &copy; copyright @ 2024 by <span>cima Kids</span>
+    </div>
+  </section>
+  <!-- footer section ends -->
+
+  <script src="app.js"></script>
+
+  <script>
+    lightGallery(document.querySelector(".gallery .gallery-container"));
+  </script>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+    import { getDatabase, get, set, ref, remove, update, child } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCiL9I5hokjct0j1WiLg5ZB0erVv094aiw",
+      authDomain: "cima-kids.firebaseapp.com",
+      projectId: "cima-kids",
+      storageBucket: "cima-kids.appspot.com",
+      messagingSenderId: "324919675126",
+      appId: "1:324919675126:web:af1fb7392f829b2f2104d7",
+      measurementId: "G-WZHXGFQLY0",
+      databaseURL: "https://cima-kids-default-rtdb.europe-west1.firebasedatabase.app"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+
+    const db = getDatabase(app);
+
+    const db_ref = ref(db);
+
+    // function refresh(e) {
+    //     e.preventDefault();
+
+
+
+    get(child(db_ref, "users/YMbtqu3xKRZUSDXbIxGMbgOAaSn1"))
+      .then((stored_data) => {
+        document.getElementById("user_name").textContent = stored_data.val().username;
+        document.getElementById("user_email").textContent = stored_data.val().email;
+        document.getElementById("name").value = stored_data.val().username;
+        document.getElementById("email").value = stored_data.val().email;
+        document.getElementById("gender").value = stored_data.val().gender;
+        document.getElementById("country").value = "Jordan";
+
+      })
+      .then(() => { })
+      .catch((error) => { error })
+    // }
+
+
+    // document.getElementById("re").addEventListener("click", refresh);
+
+
+  </script>
+  <Script src="app.js"></Script>
+</body>
+
+</html>

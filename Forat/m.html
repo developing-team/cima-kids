@@ -8,6 +8,8 @@
     <title>Cimakids Website</title>
     <!-- Font Awesome CDN link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -32,10 +34,10 @@
             <div class="fas fa-bars" id="menu-btn"></div>
         </div>
 
-        <!-- <form action="" class="login-form">
+        <form action="" class="login-form">
             <h3>Login Now</h3>
             <input type="submit" value="Login Now" class="btn" />
-        </form> -->
+        </form>
     </header>
 
     <div class="container text-center">
@@ -131,7 +133,7 @@
     </section>
 
     <!-- JavaScript links -->
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
@@ -194,7 +196,7 @@
             commentElement.classList.add('single-comment');
             commentElement.innerHTML = `
         <div class="part-img">
-            <img src="assets/img/use.jpg" alt="">
+            <img src="assets/img/u.jpg" alt="">
         </div>
         <div class="part-text">
             <span class="commentor-name">${comment.name}</span>
@@ -251,7 +253,7 @@
                     }
                     commentElement.innerHTML = `
                 <div class="part-img">
-                    <img src="assets/img/use.jpg" alt="">
+                    <img src="assets/img/u.jpg" alt="">
                 </div>
                 <div class="part-text">
                     <span class="commentor-name">${comment.name}</span>
@@ -263,9 +265,9 @@
                     commentsList.appendChild(commentElement);
 
                     // Attach event listeners for edit and delete buttons
-                    commentElement.querySelector('.delete-btn').addEventListener('click', () => {
-                        deleteComment(movie_id, key); // pass movie_id and comment key
-                    });
+                    // commentElement.querySelector('.delete-btn').addEventListener('click', () => {
+                    //     deleteComment(movie_id, key); // pass movie_id and comment key
+                    // });
                     const userData = JSON.parse(localStorage.getItem("userData"));
                     console.log(userData.email);
 
@@ -283,8 +285,50 @@
 
                         } else {
                             // Do not allow editing
-                            alert('You are not authorized to edit this comment.');
+                            function showCustomAlert() {
+            Swal.fire({
+                title: 'You cannot edit!!',
+                text: 'You are not authorized to edit this comment.!',
+                icon: 'info', // You can change this to 'success', 'error', 'warning', etc.
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#e9768f', // Customize button color
+                background: '#fff', // Customize background color
+                customClass: {
+                    popup: 'custom-popup',
+                    title: 'custom-title',
+                    confirmButton: 'custom-confirm-button'
+                }
+            });
+        }
+                           showCustomAlert(); // alert('You are not authorized to edit this comment.');
                         }
+                    });
+                    commentElement.querySelector('.delete-btn').addEventListener('click', () => {
+                        const commentEmail = comment.email;
+
+if (commentEmail.trim() === userData.email) {
+     deleteComment(movie_id, key); // pass movie_id and comment key
+
+} else  {
+                            // Do not allow editing
+                            function showCustomAlert() {
+            Swal.fire({
+                title: 'You cannot Delete!!',
+                text: 'You are not authorized to delete this comment.!',
+                icon: 'info', // You can change this to 'success', 'error', 'warning', etc.
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#e9768f', // Customize button color
+                background: '#fff', // Customize background color
+                customClass: {
+                    popup: 'custom-popup',
+                    title: 'custom-title',
+                    confirmButton: 'custom-confirm-button'
+                }
+            });
+        }
+                           showCustomAlert(); // alert('You are not authorized to edit this comment.');
+                        }
+                        // deleteComment(movie_id, key); // pass movie_id and comment key
                     });
                 });
                 // Show/hide additional comments logic
@@ -338,7 +382,22 @@
             document.querySelector('#emailInput').value = '';
             document.querySelector('#messageInput').value = '';
 
-            alert('Your comment has been saved successfully!');
+            function showCustomAlert() {
+            Swal.fire({
+                // title: 'You Comment has been add successfully!!',
+                text: 'You Comment has been add successfully!!',
+                icon: 'info', // You can change this to 'success', 'error', 'warning', etc.
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#e9768f', // Customize button color
+                background: '#fff', // Customize background color
+                customClass: {
+                    popup: 'custom-popup',
+                    title: 'custom-title',
+                    confirmButton: 'custom-confirm-button'
+                }
+            });
+        }
+                           showCustomAlert();
         } else {
             alert('Please fill in all fields before submitting.');
         }

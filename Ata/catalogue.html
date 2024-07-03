@@ -42,7 +42,7 @@
   <div class="search-block">
     <form id="search-form">
       <input type="text" id="search-input" placeholder="Search movies by title...">
-      <button type="submit" class="btn btn-secondary">Search</button>
+      <!-- <button type="submit" class="btn btn-secondary">Search</button> -->
     </form>
   </div>
 
@@ -185,7 +185,7 @@
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('search-input');
 
-    searchForm.addEventListener('submit', async function (event) {
+    searchForm.addEventListener('input', async function (event) {
       event.preventDefault();
       const searchTerm = searchInput.value.toLowerCase().trim();
 

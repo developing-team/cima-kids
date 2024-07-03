@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    background-image: url();
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+header {
+    height: 60px;
+    background-color: #52B6FF;
+}
+
+
+footer {
+    height: 60px;
+    background-color: #52B6FF;
+}
+
+
+.profile-section {
+    max-width: 800px;
+    /* height: 78.5vh; */
+    height: auto;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* background-color: #fff; */
+    background-color: rgb(240, 248, 255);
+    /* padding: 20px; */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* .profile-section ::before {
+    content: "";
+    width: 20px;
+    height: inherit;
+    background-color: #218838;
+
+} */
+
+.user-details {
+    display: flex;
+    align-items: center;
+    height: 15%;
+    margin-bottom: 10px;
+    background-color: #52B6FF;
+    background-image: url(./image/spong.png);
+    background-repeat: no-repeat;
+    background-position: 50% 12%;
+    padding: 15px;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.user-avatar img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-name {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.user-email {
+    color: #666;
+}
+
+.edit-button {
+    margin-left: auto;
+}
+
+.edit-button button {
+    width: 60px;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #007bff;
+
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.edit-button button:hover {
+    background-color: #0056b3;
+
+}
+
+.user-information {
+    margin: 0px 10px;
+    height: 65%;
+}
+
+.user-information input {
+    border: 0px;
+    background-color: #ffffff;
+}
+
+.user-information h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+
+}
+
+.save_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+}
+
+
+.user-information form {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    margin: 10px 15px;
+    width: calc(50% - 30px);
+
+}
+
+.watched {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+
+}
+
+.watched h4 {
+    padding-left: 15px;
+}
+
+.movies_card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5px;
+
+}
+
+
+.movie {
+    margin: 10px 15px;
+    width: 100px;
+    height: 145px;
+    background-color: #52B6FF;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 5px;
+}
+
+.movie img {
+    position: absolute;
+    width: inherit;
+}
+
+.movie h6 {
+    color: #fff;
+    position: relative;
+    z-index: 5;
+    margin: 0px 5px;
+}
+
+.movie p {
+    color: #fff;
+    font-size: x-small;
+    margin: 5px 5px;
+    position: relative;
+    z-index: 5;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button[type="submit"],
+button[type="button"] {
+    background-color: #007bff;
+
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#out {
+    background-color: #ff0055;
+
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+
+#save {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+
+button[type="submit"]:hover {
+    background-color: #218838;
+
+}
+
+
+button[type="button"]:hover {
+    background-color: #ff0055;
+
+}
+
+.social-icons {
+    margin: 13px 20px;
+    height: 20%;
+}
+
+.social-icons h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+    /* Dark text color */
+}
+
+.social-list {
+    list-style-type: none;
+    display: flex;
+}
+
+.social-list li {
+    margin-right: 10px;
+}
+
+.social-list li a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+}
+
+.social-list li a img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        height: auto;
+    }
+
+    .profile-section {
+        height: auto;
+        padding: 10px;
+    }
+
+    .user-details {
+        height: auto;
+        padding: 10px;
+    }
+
+    .user-avatar img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .user-information {
+        height: auto;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        height: auto;
+    }
+
+    .user-details {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+    }
+
+    .user-avatar img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .edit-button {
+        margin-top: 10px;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+    }
+}
