@@ -38,26 +38,27 @@
   </header>
   <!-- header section ends -->
 
+ 
   <!-- home section starts -->
   <section class="home" id="home">
     <div class="content">
       <h3>
         <span style="color: #000000">welcome</span>
-        to <span>cima</span>kids
+        to <span>cima</span>kids 
       </h3>
     </div>
     <div class="hero-slider" data-carousel>
-      <div class="carousel-cell" style="background-image: url(./images/1.jpg)">
+      <div class="carousel-cell" style="background-image: url(../images/1.jpg)">
         <div class="overlay"></div>
         <div class="inner">
-          <h1 class="small-title">Welcome to Cimakids,</h1>
+          <h1 class="small-title">Welcome to <span id="user_name"></span> Cimakids,</h1>
           <h2 class="long-text">
             the magical world of kids' movies, where every story comes to life
             and every adventure is just a click away!
           </h2>
         </div>
       </div>
-      <div class="carousel-cell" style="background-image: url(./images/2.jpg)">
+      <div class="carousel-cell" style="background-image: url(../images/2.jpg)">
         <div class="overlay"></div>
         <div class="inner">
           <h1 class="small-title">Epic Heroic Tales</h1>
@@ -67,7 +68,7 @@
           </h2>
         </div>
       </div>
-      <div class="carousel-cell" style="background-image: url(./images/3.jpg)">
+      <div class="carousel-cell" style="background-image: url(../images/3.jpg)">
         <div class="overlay"></div>
         <div class="inner">
           <h1 class="small-title">Animated Joy</h1>
@@ -77,7 +78,7 @@
           </h2>
         </div>
       </div>
-      <div class="carousel-cell" style="background-image: url(./images/4.jpg)">
+      <div class="carousel-cell" style="background-image: url(../images/4.jpg)">
         <div class="overlay"></div>
         <div class="inner">
           <h1 class="small-title">Join the Quest</h1>
@@ -87,7 +88,7 @@
           </h2>
         </div>
       </div>
-      <div class="carousel-cell" style="background-image: url(./images/5.jpg)">
+      <div class="carousel-cell" style="background-image: url(../images/5.jpg)">
         <div class="overlay"></div>
         <div class="inner">
           <h1 class="small-title">Family Fun</h1>
@@ -140,7 +141,7 @@
           Explore our collection of fun and educational animated movies for
           kids.
         </p>
-        <img src="images/services1.png" alt="Animated Movies" />
+        <img src="../images/services1.png" alt="Animated Movies" />
       </div>
 
       <div class="box">
@@ -149,7 +150,7 @@
           Engage with interactive games designed to entertain and educate
           children.
         </p>
-        <img src="images/services2.png" alt="Interactive Games" />
+        <img src="../images/services2.png" alt="Interactive Games" />
       </div>
 
       <div class="box">
@@ -158,7 +159,7 @@
           Join our creative workshops where kids can learn to draw, craft, and
           more.
         </p>
-        <img src="images/services3.png" alt="Creative Workshops" />
+        <img src="../images/services3.png" alt="Creative Workshops" />
       </div>
     </div>
   </section>
@@ -175,8 +176,8 @@
   <section class="footer">
     <div class="box-container">
       <div class="box">
-        <a href="./index.html" class="logo" id="logo-icon">
-          <img src="boys.png" />
+        <a href="../abdelraouf/auth.html" class="logo" id="logo-icon">
+          <img src="../images/boys.png" />
         </a>
         <p>
           Join us again for more fun-filled adventures and unforgettable
@@ -190,17 +191,17 @@
 
       <div class="box">
         <h3>category</h3>
-        <a href="./Othman/About Us visitor/aboutUsVisitor.html">
+        <a href="../Othman/About Us/aboutUs.html">
           <i class="fas fa-caret-right"></i> about us</a>
-        <a href="./Othman/Contact Us vistior/contactUsVisitor.html"> <i class="fas fa-caret-right"></i> contact us</a>
+        <a href="../Othman/Contact Us/contactUs.html"> <i class="fas fa-caret-right"></i> contact us</a>
       </div>
 
       <div class="box">
         <h3>extra links</h3>
 
-        <a href="./islam/signinup.html">
+        <a href="../Ata/catalogue.html">
           <i class="fas fa-caret-right"></i> catalog</a>
-        <a href="./islam/additionalFeilds/index.html" target="_blank">
+        <a href="../islam/additionalFeilds/index.html" target="_blank">
           <i class="fas fa-caret-right"></i> FAQs</a>
       </div>
     </div>
@@ -218,14 +219,67 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
   <!-- custom js file link -->
-  <script src="./app.js"></script>
+  <script type="module" src="./app.js"></script>
+
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+    import { getDatabase, get, set, ref, remove, update, child } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCiL9I5hokjct0j1WiLg5ZB0erVv094aiw",
+      authDomain: "cima-kids.firebaseapp.com",
+      projectId: "cima-kids",
+      storageBucket: "cima-kids.appspot.com",
+      messagingSenderId: "324919675126",
+      appId: "1:324919675126:web:af1fb7392f829b2f2104d7",
+      measurementId: "G-WZHXGFQLY0",
+      databaseURL: "https://cima-kids-default-rtdb.europe-west1.firebasedatabase.app"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+
+    const db = getDatabase(app);
+
+    const db_ref = ref(db);
+
+    // function refresh(e) {
+    //     e.preventDefault();
+
+
+
+    const data = JSON.parse(localStorage.getItem("userData"));
+
+    get(child(db_ref, "users/" + data.uid))
+      .then((stored_data) => {
+        document.getElementById("user_name").textContent = stored_data.val().username;
+
+      })
+      .then(() => { })
+      .catch((error) => { error })
+    // }
+
+
+    // document.getElementById("re").addEventListener("click", refresh);
+
+
+  </script>
+
 
   <script>
-    console.log("finally");
+    // lightGallery(document.querySelector(".gallery .gallery-container"));
 
-    lightGallery(document.querySelector(".gallery .gallery-container"));
+
   </script>
 </body>
 
 </html>
-
